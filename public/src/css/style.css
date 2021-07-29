@@ -1,10 +1,6 @@
 @import'null.css';
-
-
-
-.body{
-	background: rgb(211, 211, 211);
-}
+@import'header.css';
+@import'shop.css';
 
 
 	

@@ -16,10 +16,9 @@ function ibg(){
 	}
 	}
 	
-	ibg();
+ibg();
 
 	
-
 	$(document).ready(function(){
 		$('.ac-block__title').click(function(event){
 			if($('.ac-block').hasClass('one')){

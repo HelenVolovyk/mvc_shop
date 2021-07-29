@@ -1,0 +1,322 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 50;
+	width: 100%;
+}
+.up{
+	width: 100%;
+	height: 50px;
+	background-color: rgb(19, 124, 228);
+	top: 0;
+	left: 0;
+}
+nav.name {
+	z-index: 60;
+	position:relative;
+}
+a.navbar-brand:hover:after,
+a.navbar-brand:focus:after,
+a.header__lang:hover:after,
+a.header__lang:focus:after,
+a.recipes__link:hover:after,
+a.categ__cart-linck::after,
+a.recipes__link:focus:after,
+a.more:focus::after {
+	width: 0%;
+}
+
+
+a.header__link:hover,
+a.rec__link:hover,
+a.recipes__link:hover,
+a.categ__cart-linck:hover,
+a.more:hover{
+
+	text-decoration: none;
+}
+.header li {
+	list-style: none;
+	position: relative;
+}
+
+.header__enter {
+	display: none;
+}
+
+.name__enter {
+	display: block;
+	display: flex;
+}
+
+.header__lang {
+	display: none;
+}
+.head__search {
+	display: none;
+}
+.nav__search {
+	display: block;
+}
+
+.header:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(255, 255, 255);
+	z-index: 2;
+}
+
+.header__body {
+
+	display: flex;
+	
+	justify-content: center;
+	align-items: center;
+	height: 40px;
+	width: 100%;
+	background-color: rgba(158, 158, 158, 0.507);
+	overflow: hidden;
+	border-bottom: 4px solid white;
+	@media(max-width:767px){
+		border-bottom: 0;
+	}
+}
+.body.bg{
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: none;
+	object-position: 0% 100%;
+	opacity: 1;
+}
+.body.bg.active{
+	opacity: 0;
+}
+.body__tel{
+	padding-top: 2px;
+}
+
+.header__list {
+	display: flex;
+	position: relative;
+	z-index: 2;
+	margin-bottom: 0;
+}
+.header__link a:hover{
+	text-decoration: none;
+	color:#007bff;
+}
+
+a.header__link {
+	color: rgb(255, 255, 255);
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 0px 7px 0px 7px;
+	position: relative;
+}
+a.header__link.active{
+	color:#007bff;
+	border-bottom: 3px solid #007bff; /*задаём цвет линии*/
+	padding-bottom: 1px;
+}
+
+a.product__link.active{
+	color: #007bff;
+	border-bottom: 2px solid #007bff; /*задаём цвет линии*/
+	
+}
+a.header__link:after,
+a.category__link:after,
+.categ__cart-linck::after,
+a.product__link::after,
+a.recipes__link::after,
+a.more::after
+ {
+	display: block;
+	position: absolute;
+	left: 0; /*изменить на right:0;, чтобы изменить направление подчёркивания */
+	width: 0;/*задаём длинну линии до наведения курсора*/
+	height: 2px; /*задаём ширину линии*/
+	background-color: #007bff; /*задаём цвет линии*/
+	content: "";
+	transition: width 0.3s ease-out; /*задаём время анимации*/
+}
+a.header__link:hover:after,
+a.header__link:focus:after,
+a.category__link:hover:after,
+a.category__link:focus:after,
+a.categ__cart-linck:hover:after,
+a.categ__cart-linck:focus:after,
+a.recipes__link:hover:after,
+a.recipes__link:focus:after,
+a.product__link:hover:after,
+a.product__link:focus:after,
+a.more:focus::after,
+a.more:hover::after
+
+{
+	width: 100%;
+}
+
+
+.header__logo {
+	flex: 0 0 90px;
+   position: relative;
+	z-index: 3;
+}
+
+a.tel {
+	font-weight: 300;
+	position: absolute;
+	margin-top: 70px;
+	
+}
+i.fa.fa-phone.fa-2x:before {
+	margin-top: 3px;
+}
+.header__logo img {
+	max-width: 100%;
+	display: block;
+}
+
+.header__burger {
+	display: none;
+}
+
+
+.navbar-brand {
+	max-width: 120px;
+}
+
+
+
+@media (max-width: 767px) {
+.navbar{
+	padding: 3px 3px;
+}
+	.brend__name {
+		display: none;
+	}
+
+	.navbar-brand {
+		display: none;
+	}
+	.name__lang {
+		display: none;
+	}
+	.name__enter {
+		display: none;
+	}
+	.header__enter {
+		display: block;
+	}
+	.header__lang {
+		display: block;
+	}
+	.head__search {
+		display: block;
+	}
+	.nav__search {
+		display: none;
+	}
+	body.lock {
+		overflow: hidden;
+	}
+	.header__logo {
+		flex: 0 0 60px;
+		padding-left: 5px;
+	}
+	.header__body {
+		height: 15px;
+	}
+	.header__burger {
+		display: block;
+		position: relative;
+		width: 30px;
+		height: 20px;
+		z-index: 3;
+		
+	}
+	.header__burger span {
+		position: absolute;
+		background-color: red;
+		width: 100%;
+		height: 2px;
+		left: 0;
+		top: 9px;
+	}
+
+	.header__burger:before,
+	.header__burger:after {
+		content: "";
+		background-color:red;
+		position: absolute;
+		width: 100%;
+		height: 2px;
+		left: 0;
+		transition: all 0.3s ease 0s;
+	}
+	.header__burger:before {
+		top: 0;
+	}
+	.header__burger:after {
+		bottom: 0;
+	}
+	.header__burger.active span {
+		transform: scale(0);
+		transition: all 0.3s ease 0s;
+	}
+	.header__burger.active:before {
+		transform: rotate(45deg);
+		top: 9px;
+	}
+	.header__burger.active:after {
+		transform: rotate(-45deg);
+		bottom: 9px;
+	}
+
+	.header__menu {
+		position: fixed;
+		top: -100%;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		transition: all 0.3s ease 0s;
+		background-color: #18b5a4;
+		padding: 70px 10px 20px 10px;
+	}
+	.header__menu.active {
+		top: 30px;
+	}
+	.header__list {
+		display: block;
+	}
+
+	.header__list li {
+		margin: 0px 0px 25px 0px;
+	}
+	a.header__link {
+		font-size: 20px;
+		color: white;
+		margin-left: 10px;
+		font-weight: bold;
+	}
+	i.fa.fa-heart-o::before {
+		margin-right: 8px;
+		font-size: 18px;
+	}
+	.fa-shopping-cart:before{
+		margin-right:12px;
+		font-size: 19px;
+	}
+}
