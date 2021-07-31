@@ -3,7 +3,7 @@ use Framework\Core\AbsView;
 AbsView::render('layouts/header.php');
 ?>
 
-<div class="container">
+<div class="content">
 	<div class="row">
 		<div class="col-sm">
 		</div>

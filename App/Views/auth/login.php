@@ -3,7 +3,7 @@ use Framework\Core\AbsView;
 AbsView::render('layouts/header.php');
 ?>
 
-<div class="container">
+<div class="content">
 
 	<div class="row">
 		<div class="col-sm">
@@ -15,7 +15,7 @@ AbsView::render('layouts/header.php');
 			</div>
 			<?php endif; ?>
 
-<h3>Welcome to our shop</h3>
+			<h3>Welcome to our shop</h3>
 
 			<form method="POST" action="/auth/">
 				<div class="form-group">

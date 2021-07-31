@@ -14,6 +14,7 @@
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
 	</script>
 	<script src="https://unpkg.com/@popperjs/core@2"></script>
+	<script src="/src/js/script.js"></script>
 </head>
 
 

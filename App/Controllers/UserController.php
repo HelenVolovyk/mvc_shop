@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 
+use App\Logger\LogStreamer;
 use App\Models\User;
 use App\Validator\User\UserCreateVaidate;
 use App\Validator\User\UserCreateValidate;
@@ -32,6 +33,8 @@ class UserController extends AbsController
 			  if($newUser){
 				
 				  AbsView::site_redirect('/login');
+				  LogStreamer::info('new user registered', ['user' => $newUser['name']]);
+				  
 			  } else {
 				  die("500 - Ooops, smth went wrong "); 
 			  }      

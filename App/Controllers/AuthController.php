@@ -30,7 +30,7 @@ class AuthController extends AbsController
 	public function auth()
 	{
 	
-		unset($_SESSION['error']['login']['common']);
+		// unset($_SESSION['error']['login']['common']);
 		$fields = filter_input_array(INPUT_POST, $_POST, 1);
 
 		$user = new User();
@@ -45,7 +45,7 @@ class AuthController extends AbsController
 		} else{
 		
 		$_SESSION['error']['login']['common'] = 'Data is not correct';
-		//echo 'Data is not correct';
+		
 		}
 
 	AbsView::site_redirect('/login');
@@ -62,7 +62,7 @@ class AuthController extends AbsController
 	public function logOut()
 	{
 		SessionHelpers::destroyUserData();
-        redirect('home');
+		AbsView::site_redirect('home');
    
 	}
 }

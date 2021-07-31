@@ -14,8 +14,11 @@ error_reporting(E_ALL);
 // Подключение файлов системы
 require_once dirname(__DIR__) .'/vendor/autoload.php';
 require_once dirname(__DIR__) . '/Const/const.php';
+require_once dirname(__DIR__) . '/Framework/Core/Common/function.php';
 
 session_start();
+
+
 
 // Вызов Router
 

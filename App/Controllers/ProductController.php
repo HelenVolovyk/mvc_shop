@@ -2,15 +2,20 @@
 namespace App\Controllers;
 
 use Framework\Core\AbsController;
+use Framework\Core\AbsView;
 
-use Framework\Core\View;
 
 class ProductController extends AbsController{
 	
 	public function list(){
       
+		AbsView::render('templates/shop/index.php');
+	}
+
 	
-		echo 'hi, product';
+	public function show(){
+      
+		AbsView::render('templates/shop/product_show.php');
 	}
 }
   

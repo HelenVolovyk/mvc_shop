@@ -11,7 +11,7 @@ AbsView::render('layouts/header.php');
 			<div class="top row" style="margin: 0">
 				<div class="bread col-auto mr-auto">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a class="breadcrumb__link" href="/home">home</a></li>
+						<li class="breadcrumb-item"><a class="breadcrumb__link" href="/">home</a></li>
 						<li class="breadcrumb-item"><a class="breadcrumb__link" href="/products">shop</a></li>
 						<li class="breadcrumb-item active" aria-current="page">product name</li>
 					</ol>
@@ -157,5 +157,5 @@ AbsView::render('layouts/header.php');
 
 <?php
 
-AbsView::render('layouts/header.php');
+ AbsView::render('layouts/footer.php');
 ?>

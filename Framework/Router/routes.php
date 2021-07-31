@@ -5,10 +5,11 @@ namespace Router;
 return array(
    
     
-	'home' 		 	=> 'home/index', 	
+	'' 		 		=> 'home/index', 	
 	'products'  	=> 'product/list',
+	'product/show' => 'product/show',
 	'categories'   => 'category/index',
-	'news'      	=> "news/list",
+	'cart'      	=> "cart/index",
 	 
 	 //auth
 	'login' 			=> 'auth/login',
