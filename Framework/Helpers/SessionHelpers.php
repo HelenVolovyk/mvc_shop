@@ -25,6 +25,7 @@ class SessionHelpers
 	 }
 	}
 
+
     public static function destroyUserData(){
         session_destroy();
     }

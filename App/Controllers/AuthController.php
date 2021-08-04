@@ -40,7 +40,9 @@ class AuthController extends AbsController
 			if(password_verify($fields['pass'], $userData['pass'])){
 							
 				SessionHelpers::setUserData('id', $userData['id']);
-				AbsView::site_redirect('/home');
+				SessionHelpers::setUserData('name', $userData['name']);
+				
+				AbsView::site_redirect('/');
 				} 
 		} else{
 		
@@ -62,7 +64,7 @@ class AuthController extends AbsController
 	public function logOut()
 	{
 		SessionHelpers::destroyUserData();
-		AbsView::site_redirect('home');
+		AbsView::site_redirect('/');
    
 	}
 }

@@ -1,17 +1,16 @@
 <?php
 namespace App\Controllers;
 
-use App\Logger\LogStreamer;
+
 use App\Models\User;
-use App\Validator\User\UserCreateVaidate;
-use App\Validator\User\UserCreateValidate;
 use App\Validator\User\UserCreateValidator;
-use App\Validator\User\UserUpdateVaidate;
-use App\Validator\User\UserUpdateValidate;
 use App\Validator\User\UserUpdateValidator;
 use Framework\Core\AbsController;
 use Framework\Core\AbsView;
 use Framework\Helpers\SessionHelpers;
+use Framework\Logger\LogStreamer;
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 use SessionHandler;
 
 class UserController extends AbsController
@@ -21,19 +20,21 @@ class UserController extends AbsController
 	{
 		
 		 $fields = filter_input_array(INPUT_POST, $_POST, 1);
-	
 		 $userValidate = new UserCreateValidator();
 
 		 if ($userValidate->storeValidate($fields) && !$userValidate->checkEmailOnExist($fields['email'])){
 			
 			  $user = new User();
 			  $newUser = $user->create($fields);
-			 
-			  
+			
 			  if($newUser){
-				
-				  AbsView::site_redirect('/login');
-				  LogStreamer::info('new user registered', ['user' => $newUser['name']]);
+				 // LogStreamer::info('new user registered', ['user' => $fields['name']]);
+
+				 $logger = new Logger('info');
+				 $logger->pushHandler(new  StreamHandler(ROOT_PATH . '/Framework/Logger/info_log'));
+				 $logger->info('My logger is now ready');
+				 AbsView::site_redirect('/login');
+			
 				  
 			  } else {
 				  die("500 - Ooops, smth went wrong "); 
@@ -48,7 +49,6 @@ class UserController extends AbsController
 
 	public function index (){
 		 $user = new User();
-
 		 $this->data['data'] = $user->getUserById($_SESSION['user_data']['id']);
 		 AbsView::render('user/edit.php', $this->data);
 	}
@@ -87,7 +87,7 @@ class UserController extends AbsController
 					}
 
 			  } else {
-				var_dump(222); 
+			//	var_dump(222); 
 					unset($fields['old_pass'], $fields['new_pass']);
 			  }
 			  $user->update($fields);
@@ -106,5 +106,10 @@ class UserController extends AbsController
 
 
 		 AbsView::render('user/edit.php', $this->data);
+	}
+
+	public function profile()
+	{
+		AbsView::render('user/profile.php');
 	}
 }

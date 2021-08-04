@@ -3,7 +3,7 @@ namespace App\Controllers;
 
 use Framework\Core\AbsController;
 use Framework\Core\AbsView;
-use Framework\Core\View;
+
 
 class HomeController extends AbsController{
 	

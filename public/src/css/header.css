@@ -320,3 +320,8 @@ i.fa.fa-phone.fa-2x:before {
 		font-size: 19px;
 	}
 }
+
+.nav-link.cart{
+	display: flex;
+}
+

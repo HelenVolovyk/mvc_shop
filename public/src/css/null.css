@@ -4,27 +4,38 @@ html {
 
 html,
 body {
-	min-height: 100%;
+	height: 100%;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	color: #333;
-	/* overflow: hidden; */
+}
+
+body {
+	background-color: #fff !important;
+}
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	/* max-width: 100%;
+	overflow: hidden;
+	top: 0;
+	left: 0; */
+} 
+.main {
+	flex: 1 1 auto;
 }
 
 .centered {
 	text-align: center;
 }
-body {
-	background-color: #fff !important;
-	
-}
+
 ol.breadcrumb {
 	list-style: none;
 	display: flex;
 	padding-left: 0px;
 	background-color: #fff;
 	padding-top: 0;
-
 }
 *,
 *:before,
@@ -46,18 +57,7 @@ input[type="search"]::-webkit-search-decoration{
 	-moz-box-shadow: none;
 	box-shadow: none;
 }
- .wrapper {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	max-width: 100%;
-	overflow: hidden;
-	top: 0;
-	left: 0;
-} 
-.main {
-	flex: 1 0 auto;
-}
+
 .container-fluid {
 	width: 100%;
 	padding: 0; 
@@ -98,7 +98,6 @@ a.breadcrumb__link:hover{
 	font-size: 22px;
 	opacity: 0;
 	transition: all .8s ease-in-out;
-
 }
 .gotop{
 	right: 0;
@@ -109,7 +108,6 @@ a.breadcrumb__link:hover{
 }
 .go__phone {
 	bottom: 165px;
-	
 }
  @media (max-width: 767px) {
 	.content {
@@ -156,12 +154,11 @@ i.fa.fa-phone:focus,
 i.fa.fa-phone:hover{
 		-webkit-transform:scale(1.5) rotate(4deg);
 		transform:scale(1.5) rotate(4deg)
-	}
+}
 i.fa.fa-arrow-up:hover{
 		-webkit-transform: translateY(-50%);
 		-ms-transform: translateY(-50%);
 		transform: translateY(-50%);
-	
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -177,15 +174,17 @@ p{
 	background-size: cover;
 	background-repeat: no-repeat;
 	position: relative;
-}
+	}
 	
-img.ibg {
-	width: 100%;
-	height: 100%;
+.ibg img{
+	width: 0;
+	height: 0;
 	position: absolute;
 	top: 0;
 	left: 0;
 	opacity: 0;
 	visibility: hidden;
-}
+	}
+	
+	
  

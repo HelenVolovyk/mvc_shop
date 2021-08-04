@@ -13,14 +13,16 @@ AbsView::render('layouts/header.php');
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a class="breadcrumb__link" href="/">home</a></li>
 						<li class="breadcrumb-item"><a class="breadcrumb__link" href="/products">shop</a></li>
-						<li class="breadcrumb-item active" aria-current="page">product name</li>
+						<li class="breadcrumb-item active" aria-current="page"> <?php echo $product['name'] ?></li>
 					</ol>
 				</div>
 			</div>
 		</div>
 
 		<div class="col-md-12 mb-3">
-			<h3 class="text-center">product name</h3>
+			<h3 class="text-center">
+				<?php echo $product['name'] ?>
+			</h3>
 		</div>
 
 		<div class="row justify-content-center">
@@ -46,10 +48,10 @@ AbsView::render('layouts/header.php');
 
 				<p style="color: red; text-decoration: line-through">1200 грн</p>
 
-				<p>PRICE: <strong>1000 грн</strong></p>
-				<p>SKU: 124578</p>
+				<p>PRICE: <strong> <?php echo $product['price'] ?> грн</strong></p>
+				<p>SKU: <?php echo $product['SKU'] ?></p>
 				<p>IN STOCK:
-					<strong> 20</strong>
+					<strong> <?php echo $product['quantity'] ?></strong>
 				</p>
 				<hr>
 
@@ -59,8 +61,7 @@ AbsView::render('layouts/header.php');
 				</div>
 				<hr>
 
-				<p>Rating: 5</p>
-				<hr>
+
 
 				<div class="">
 					<p>Quantity</p>

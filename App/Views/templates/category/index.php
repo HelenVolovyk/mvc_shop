@@ -15,7 +15,7 @@ AbsView::render('layouts/header.php');
 			<div class="bread">
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a class="breadcrumb__link" href="/">Home</a></li>
-					<li class="breadcrumb-item"><a class="breadcrumb__link" href="/shop">Shop</a></li>
+					<li class="breadcrumb-item"><a class="breadcrumb__link" href="/products">Shop</a></li>
 					<li class="breadcrumb-item active" aria-current="page">All Categories</li>
 				</ol>
 			</div>

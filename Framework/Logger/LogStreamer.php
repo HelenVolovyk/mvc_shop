@@ -1,5 +1,5 @@
 <?php
-namespace App\Logger;
+namespace Framework\Logger;
 
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
@@ -45,11 +45,8 @@ class LogStreamer
 	}
 
 	public static function info($message, array $context = []){
-		self::getLogger()->addInfo($message, $context);
-	}
 
-	public static function notice($message, array $context = []){
-		self::getLogger()->addNotice($message, $context);
+		self::getLogger()->addInfo($message, $context);
 	}
 
 	public static function warning($message, array $context = []){
@@ -60,17 +57,7 @@ class LogStreamer
 		self::getLogger()->addError($message, $context);
 	}
 
-	public static function critical($message, array $context = []){
-		self::getLogger()->addCritical($message, $context);
-	}
-
-	public static function alert($message, array $context = []){
-		self::getLogger()->addAlert($message, $context);
-	}
-
-	public static function emergency($message, array $context = []){
-		self::getLogger()->addEmergency($message, $context);
-	}
+	
 	
 }
 

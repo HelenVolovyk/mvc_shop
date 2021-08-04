@@ -9,6 +9,8 @@ function site_redirect($path = '')
 	exit;
 	}
 
+
+	
 	function show_alert()
 	{
 		if(isset($_SESSION['notification'])){
@@ -20,3 +22,9 @@ function site_redirect($path = '')
 			unset($_SESSION['notification']);
 		}
 	}
+
+	
+function redirect_back()
+{
+	header('Location: ' . $_SERVER['HTTP_REFERER']);
+}

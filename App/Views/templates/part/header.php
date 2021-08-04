@@ -29,36 +29,61 @@
 
 						<div class="name__enter">
 
+
+
+							<?php if (!Framework\Helpers\SessionHelpers::isUserLogin()): ?>
 							<li class="nav-item">
 								<a class="nav-link" href="/login"><i class="fa fa-user-o" aria-hidden="true"></i></a>
 							</li>
-
-							<li class="nav-item dropdown">
-								<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-
-									<span class="caret"></span>
-								</a>
+							<?php endif?>
 
 
-								<form id="logout-form" action="" method="POST" style="display: none;">
+							<?php if (Framework\Helpers\SessionHelpers::isUserLogin()): ?>
+							<ul class="navbar-nav float-right">
+								<li class="nav-item dropdown active">
+									<a class="nav-link" href="/user/profile"><?php echo  $_SESSION['user_data']['name'];?></a>
+								</li>
+								<!-- 
 
-								</form>
 
-							</li>
+								<li class="nav-item">
+									<a class="nav-link" href="/logout/"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+											height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+											<path fill-rule="evenodd"
+												d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+											<path fill-rule="evenodd"
+												d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+										</svg></a>
+								</li> -->
+
+
+							</ul>
+
+
+							<?php endif; ?>
+
+
 						</div>
 					</ul>
 				</div>
 
 				<div class="d-flex justify-content-end">
-					<li class="nav-item">
+					<!-- <li class="nav-item">
 						<a class="nav-link" href=""><i class="fa fa-heart-o" aria-hidden="true"></i>
 						</a>
-					</li>
+					</li> -->
 
 					<li class="nav-item">
-						<a class="nav-link" href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i>
-						</a>
+						<div class="nav-link cart">
+							<div class="">
+								<a class="nav-link" href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> </a>
+							</div>
+							<div class="">
+
+								<span
+									class="badge badge-pill badge-secondary"><?php echo App\Models\Cart::countItems();?></span>
+							</div>
+						</div>
 					</li>
 
 				</div>
@@ -88,21 +113,21 @@
 					</li>
 
 					<li class="header__link">
-						<a class="header__link" href="#">PAYMENT &
+						<a class="header__link" href="/payment">PAYMENT &
 							DELIVERY
 						</a>
 					</li>
 
 					<li class="header__link">
-						<a class="header__link" href="">NEWS</a>
+						<a class="header__link" href="/news">NEWS</a>
 					</li>
 
 					<li class="header__link">
-						<a class="header__link" href="">About</a>
+						<a class="header__link" href="/about">About</a>
 					</li>
 
 					<li class=" header__link">
-						<a class="header__link" href="">Contact</a>
+						<a class="header__link" href="/contact">Contact</a>
 					</li>
 
 

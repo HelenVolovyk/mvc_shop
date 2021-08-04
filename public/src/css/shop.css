@@ -72,7 +72,7 @@ p.registr{
 }
 .card{
 	margin-left: 10px;
-	border-bottom: none;
+	
 }
 .price{
 	display: flex;
@@ -199,12 +199,11 @@ p.card-text{
 	transform: rotate(40deg);
 }
 
-/* footer{
-	flex: 0 0 auto;
-} */
+
 .badge{
 	color: cornflowerblue;
 }
 .log{
 	margin: 0 auto;
 }
+

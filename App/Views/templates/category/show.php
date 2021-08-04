@@ -32,6 +32,7 @@ AbsView::render('layouts/header.php');
 									</div>
 
 									<ul>
+
 										<?php
 										foreach($categories as $category){
 										?>
@@ -50,7 +51,8 @@ AbsView::render('layouts/header.php');
 					</div>
 
 					<div class=" col-sm-12 col-md-10">
-						<div class="shop-line">
+						<h2>in <?php echo $category['name']; ?> category <?php echo count($products) ?> products</h2>
+						<div class="shop-line mt-3">
 							<?php
 								foreach($products as $product){
 							?>
@@ -68,13 +70,7 @@ AbsView::render('layouts/header.php');
 									</a>
 								</div>
 
-								<div class="new">
-									<?php 
-									if($product['is_new']){?>
-									<img src="" class=" new" slt="">
-									<?php }?>
 
-								</div>
 								<div class="card-body">
 									<h5 class="card-title"><?php echo $product['name']; ?>
 									</h5>
@@ -86,16 +82,12 @@ AbsView::render('layouts/header.php');
 										</small>
 										<div class="printPrice"><?php echo $product['price']; ?></div>
 									</div>
-									<a href="/cart/add/<?php echo $product['id']; ?>" data-id="<?php echo $product['id']; ?>"
-										class="go btn btn-primary add-to-ciart">Go
-										somewhere</a>
+									<a href="#" class="go btn btn-primary">Go somewhere</a>
 								</div>
 							</div>
 
 							<?php } ?>
 						</div>
-
-
 
 
 					</div>
