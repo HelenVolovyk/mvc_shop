@@ -2,18 +2,20 @@
 namespace Framework\Authentication;
 
 use App\Models\User;
-use Framework\Core\AbsController;
-use Framework\Core\AbsView;
-use Framework\Helpers\SessionHelpers;
 use Framework\Session\Session;
 
 class Authentication
 {
 
 
-	 public function isAuth(): bool
+	 public static function isAuth(): bool
 	 {
-		 return Session::get('user_data') !== null;
+		 if (isset($_SESSION['user_data'])) {
+			return true;
+		 } else {
+			 return false;
+		 }
+
 	 }
 	 
 	 

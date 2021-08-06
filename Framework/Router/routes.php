@@ -8,6 +8,9 @@ return array(
 	'' 		 		=> 'home/index', 	
 	'products'  	=> 'product/list',
 	'products/page-([0-9]+)'  	 => 'product/list/$1',
+	'products/page-([0-9]+)'  	 => 'product/list/$1',
+	'products/priceUp/page-([0-9]+)'  	 => 'product/listByPriceUp/$1',
+	'products/priceDown/page-([0-9]+)'   => 'product/listByPriceDown/$1',
 	'product/show/([0-9]+)'		 => 'product/show/$1',
 
 	'categories'   => 'category/index',

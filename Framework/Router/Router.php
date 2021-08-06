@@ -48,9 +48,11 @@ class Router
 					 $segments = explode('/', $internalRoute);
 										 
                 $controllerName =  array_shift($segments) . 'Controller';
-                $controllerName = ucfirst($controllerName);
+					 $controllerName = ucfirst($controllerName);
 				
-                $this->actionName =   ucfirst(array_shift($segments));
+				
+					 $this->actionName =   ucfirst(array_shift($segments));
+					
 					 $this->parameters = $segments;
 					
 					 if (class_exists("App\\Controllers\\" . $controllerName)){

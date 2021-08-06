@@ -18,12 +18,34 @@ class Product extends AbsModel
   }
 
  
-    public function getProductsList($page=1)
+    public function getProductsList()
     {
-		  $page = intval($page);  
-		  $offset = ($page-1) * 6;  
+		 
 		  
-       $sql = "SELECT * FROM {$this->tablename} WHERE quantity > '0' ORDER BY id LIMIT 6 OFFSET $offset";
+       $sql = "SELECT * FROM {$this->tablename} WHERE quantity > '0' ORDER BY id ";
+		 $sth = $this->db->prepare($sql);
+		 $sth->execute();
+		 $product = $sth->fetchAll(PDO::FETCH_ASSOC);
+		 return !empty( $product) ?  $product : false;
+	 }
+ 
+    public function getProductsListByPriceUp()
+    {
+		
+		  
+       $sql = "SELECT * FROM {$this->tablename} WHERE quantity > '0' ORDER BY price ";
+		 $sth = $this->db->prepare($sql);
+		 $sth->execute();
+		 $product = $sth->fetchAll(PDO::FETCH_ASSOC);
+		 return !empty( $product) ?  $product : false;
+	 }
+ 
+    public function getProductsListByPriceDown()
+    {
+		//   $page = intval($page);  
+		//   $offset = ($page-1) * 6;  
+		  
+       $sql = "SELECT * FROM {$this->tablename} WHERE quantity > '0' ORDER BY price DESC ";
 		 $sth = $this->db->prepare($sql);
 		 $sth->execute();
 		 $product = $sth->fetchAll(PDO::FETCH_ASSOC);

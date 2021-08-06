@@ -14,6 +14,9 @@ AbsView::render('layouts/header.php');
 	<a href="">
 		<h3>my Orders</h3>
 	</a>
+	<a href="/logout">
+		<h3>quite</h3>
+	</a>
 </div>
 
 <?php

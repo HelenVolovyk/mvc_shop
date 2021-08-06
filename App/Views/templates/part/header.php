@@ -31,14 +31,15 @@
 
 
 
-							<?php if (!Framework\Helpers\SessionHelpers::isUserLogin()): ?>
+
+							<?php if (!Framework\Authentication\Authentication::isAuth()): ?>
 							<li class="nav-item">
 								<a class="nav-link" href="/login"><i class="fa fa-user-o" aria-hidden="true"></i></a>
 							</li>
 							<?php endif?>
 
 
-							<?php if (Framework\Helpers\SessionHelpers::isUserLogin()): ?>
+							<?php if (Framework\Authentication\Authentication::isAuth()): ?>
 							<ul class="navbar-nav float-right">
 								<li class="nav-item dropdown active">
 									<a class="nav-link" href="/user/profile"><?php echo  $_SESSION['user_data']['name'];?></a>

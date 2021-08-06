@@ -67,3 +67,10 @@ ibg();
 			return true;
 		});
 	});
+
+// 	$(document).ready(function(){
+// $(".sort span").click(function(){
+// 	var id = $(this).attr("id");
+// 	 alert(id);
+// })
+// 	});

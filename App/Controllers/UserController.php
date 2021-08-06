@@ -7,8 +7,8 @@ use App\Validator\User\UserCreateValidator;
 use App\Validator\User\UserUpdateValidator;
 use Framework\Core\AbsController;
 use Framework\Core\AbsView;
-use Framework\Helpers\SessionHelpers;
 use Framework\Logger\LogStreamer;
+use Framework\Session\Session;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use SessionHandler;
@@ -30,10 +30,10 @@ class UserController extends AbsController
 			  if($newUser){
 				 // LogStreamer::info('new user registered', ['user' => $fields['name']]);
 
-				 $logger = new Logger('info');
-				 $logger->pushHandler(new  StreamHandler(ROOT_PATH . '/Framework/Logger/info_log'));
-				 $logger->info('My logger is now ready');
-				 AbsView::site_redirect('/login');
+				//  $logger = new Logger('info');
+				//  $logger->pushHandler(new  StreamHandler(ROOT_PATH . '/Framework/Logger/info_log'));
+				//  $logger->info('My logger is now ready');
+				//  AbsView::site_redirect('/login');
 			
 				  
 			  } else {
@@ -87,7 +87,7 @@ class UserController extends AbsController
 					}
 
 			  } else {
-			//	var_dump(222); 
+			 
 					unset($fields['old_pass'], $fields['new_pass']);
 			  }
 			  $user->update($fields);
@@ -96,7 +96,7 @@ class UserController extends AbsController
 					'type' => 'success',
 					'message' => 'Данные изменены!'
 			  ];
-			  SessionHelpers::setUserData('name', ' ' . $fields['name']);
+			 Session::setname('name', ' ' . $fields['name']);
 
 			  AbsView::site_redirect('home');
 			  exit();

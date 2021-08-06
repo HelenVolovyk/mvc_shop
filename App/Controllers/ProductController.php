@@ -10,16 +10,40 @@ use Framework\Core\AbsView;
 class ProductController extends AbsController{
 	
 	
-	public function list($page=1){
+	public function list(){
 		//echo $page;
 		$category = new Category();
 		$categories = $category->getCategoriesList();
 	
 		$product = new Product();
-		$products= $product->getProductsList($page);
+		$products= $product->getProductsList();
 	
 		AbsView::render('templates/shop/index.php', ['categories' => $categories, 'products' => $products] 
-							);
+		);
+	}
+	
+		public function listByPriceUp(){
+		//echo $page;
+		$category = new Category();
+		$categories = $category->getCategoriesList();
+	
+		$product = new Product();
+		$products= $product->getProductsListByPriceUp();
+	
+		AbsView::render('templates/shop/index.php', ['categories' => $categories, 'products' => $products] 
+		);
+	}
+	
+		public function listByPriceDown(){
+		//echo $page;
+		$category = new Category();
+		$categories = $category->getCategoriesList();
+	
+		$product = new Product();
+		$products= $product->getProductsListByPriceDown();
+	
+		AbsView::render('templates/shop/index.php', ['categories' => $categories, 'products' => $products] 
+		);
 	}
 
 	

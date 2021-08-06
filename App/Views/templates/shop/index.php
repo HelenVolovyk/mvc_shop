@@ -45,8 +45,17 @@ AbsView::render('layouts/header.php');
 									</ul>
 
 								</div>
+								<div class="sort">
+									<span>sort by price</span>
+
+									<ul>
+										<li><a href="/products/listByPriceUp/">up</a></li>
+										<li><a href="/products/listByPriceDown/">downw</a></li>
+									</ul>
+								</div>
 							</div>
 						</aside>
+
 					</div>
 
 					<div class=" col-sm-12 col-md-10">

@@ -1,94 +1,90 @@
 <?php
 namespace Framework\Session;
 
-class Session{
+ class  Session{
 	
 	
-	public function setName($name)
+	public static function setName($name): void
   {
-		$_SESSION[$name] = $name;
+		$_SESSION['user_data']['name'] = $name;
   }
  
 	
-	public function getName()
+	public static function getName(): string
 	{
-		if (isset($_SESSION[$name])) {
-			return $_SESSION[$name];
+		if (!empty($_SESSION['user_data']['name'])) {
+			return $_SESSION['user_data']['name'];
 	  }
-	  return $_SESSION[$name];
+	  return "Session does not have the name";
 	}
 
 	
-	public function setId($id)
+	public static function setId($id): void
 	{
-		$_SESSION[$id] = $id;
+		$_SESSION['user_data']['id'] = $id;
 	}
 
 	
-	public function getId()
+	public static function getId(): string
 	{
-		return session_id();
+		if (!empty($_SESSION['user_data']['id'])) {
+			return $_SESSION['user_data']['id'];
+	  }
+	  return "Session does not have id";
 	}
 
-	
-	public function cookieExists()
+
+	public static function cookieExists(): bool
 	{
-		if($_COOKIE !== null) {
-			return true;
-		}else{
-			return false;
-		}
-	  
-}
-	
-	public function sessionExists()
-	{
-		if($_SESSION !== null) {
-			return true;
-		}else{
-			return false;
-		}
+		return isset($_COOKIE);
+		 
 	}
 	
-	public function start()
+	public static function sessionExists(): bool
 	{
-		session_start();
+		return isset($_SESSION);
 	}
 	
-	public function destroy()
+
+	public static function start(): bool 
+	{
+		return session_start();
+	}
+	
+	public static function destroy(): void 
 	{
 		session_destroy();
 	}
 	
-	public function setSavePath($savePath)
+	public static function setSavePath($savePath): void
 	{
-		session_save_path();
+		session_save_path($savePath);
 	}
 	
-	public function set($key, $value)
+	 
+	public  static function set($key, $value) :void
 	{
-		$_SESSION[$key] = $value;
-		return $this;
+		$_SESSION['user_data'][$key] = $value;
+		
 	}
 	
-	public function get($key)
+	public static function get($key)
 	{
-		if ($this->has($key)) {
-			return $_SESSION[$key];
+		if (!empty($_SESSION['user_data'][$key])) {
+			return $_SESSION['user_data'][$key];
 	  }
 	  return null;
 	}
 	
-	public function contains($key)
+	public static  function contains($key): bool
 	{
-		if(array_key_exists('key', $key)){
-			return true;
-		}
+		return array_key_exists($key, $_SESSION);
 	}
 	
-	public function delete($key)
+	
+	public  static function delete($key): void
 	{
-		if ($this->has($key)) {
+		if (!empty($_SESSION[$key])) {
 			unset($_SESSION[$key]);
 	  }
 	}
