@@ -8,34 +8,32 @@ use Framework\Core\AbsView;
 
 
 
-class CategoryController extends AbsController{
-	
-
+class CategoryController extends AbsController
+{
 	
 	public function index( ){
       	
 		$categories = new Category();
 		$categories = $categories->getContent();
-		
-				
+						
 		AbsView::render('templates/category/index.php', 
 		['title' => 'Categories', 'categories' => $categories ]);
 		
 	}
 
 	
-    public function show($id)
-    {
-		  $category = new Category();
-		  $categories = $category->getCategoriesList();
+    public function show($id){
+		$category = new Category();
+		$categories = $category->getCategoriesList();
 		
-        $category = $category->getCategoryById($id);
-		  $category_id = $category['id'];
+      $category = $category->getCategoryById($id);
+		$category_id = $category['id'];
 		
-		  $product = new Product();
-        $products = $product->getProductsListByCategory($category_id);
+		$product = new Product();
+      $products = $product->getProductsListByCategory($category_id);
 
-		  AbsView::render('templates/category/show.php', ['categories' => $categories, 'products' => $products, 'category_id' => $category_id]   );
-    }
+		AbsView::render('templates/category/show.php', ['categories' => $categories, 'products' => $products, 'category_id' => $category_id]   );
+	 }
+	 
 }
   

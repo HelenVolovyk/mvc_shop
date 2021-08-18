@@ -6,18 +6,14 @@ use Framework\Session\Session;
 
 class Authentication
 {
-
-
-	 public static function isAuth(): bool
-	 {
+	public static function isAuth(): bool
+	{
 		 if (isset($_SESSION['user_data'])) {
 			return true;
 		 } else {
 			 return false;
 		 }
-
-	 }
-	 
+	}
 	 
 	public function auth($login, $password): bool
 	{
@@ -32,7 +28,6 @@ class Authentication
 			Session::delete('user_data');
 			return false; 
 	  }
-		
 	}
 
 	public function getLogin()

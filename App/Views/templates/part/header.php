@@ -32,7 +32,11 @@
 
 
 
-							<?php if (!Framework\Authentication\Authentication::isAuth()): ?>
+							<?php
+
+use Framework\Core\Common\Cart;
+
+if (!Framework\Authentication\Authentication::isAuth()): ?>
 							<li class="nav-item">
 								<a class="nav-link" href="/login"><i class="fa fa-user-o" aria-hidden="true"></i></a>
 							</li>
@@ -81,15 +85,15 @@
 							</div>
 							<div class="">
 
-								<span
-									class="badge badge-pill badge-secondary"><?php echo App\Models\Cart::countItems();?></span>
+								<span id="cart-count"><?php echo Cart::countItems() ?></span>
+
 							</div>
 						</div>
 					</li>
 
 				</div>
 
-				<li class="nav-item">
+				<li class=" nav-item">
 					<a class="nav-link">
 						<div class="header__burger">
 							<span></span>

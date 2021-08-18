@@ -15,26 +15,59 @@ AbsView::render('layouts/header.php');
 
 
 			<h1 class="text-center pb-3">Cart</h1>
+
 			<div class="row col-12">
 				<div class="col-10">
+					<?php  if (isset($_SESSION['products'])){?>
+
 					<table class="table table-light">
 						<thead>
 							<tr>
 								<th>Product</th>
 								<th>Qty</th>
 								<th>Price</th>
-								<th>Subtota</th>
-
-
+								<th>Subtotal</th>
+								<th>Ection</th>
 						</thead>
 						<tbody>
+							<tr>
+								<?php
+						
+						foreach ($productsCart as $product) {
+																							
+						 		?>
+								<td><?php echo $product['name']?></td>
+
+								<td><?php echo $update['count'] ?></td>
+
+								<td><?php echo  number_format($product['price'], 2) ?></td>
+								<td><?php echo $item_price  ?></td>
+								<td>
+
+									<div class="col-2">
+										<form action="/cart/delete/<?php echo $product['id']; ?> " method="post">
+
+											<input type="submit" class="cart_delete" name=" delete" value="Delete" />
+
+
+										</form>
+
+									</div>
+
+								</td>
+
+							</tr>
+							<?php
+					 			 $total += $item_price;
+							}				
+							?>
 
 						</tbody>
+
 					</table>
+
 				</div>
-				<div class="col-2">
-					<button type="button" class="btn btn-outline-danger">Delete</button>
-				</div>
+
 
 			</div>
 
@@ -45,11 +78,23 @@ AbsView::render('layouts/header.php');
 				<div class="col-2">
 					<strong>Total</strong>
 
+					<?php
+						print_r(number_format($total, 2)). ' грн';
+					?>
+
 					<div class=" mt-3">
 						<a href="" type="button" class="btn btn-success">Checkout</a>
 					</div>
 				</div>
 			</div>
+			<?php
+            }  else {?>
+			<h2>
+				the CART is empty
+			</h2>
+			<?php
+			}
+			?>
 
 		</div>
 

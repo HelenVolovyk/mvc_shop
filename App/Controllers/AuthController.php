@@ -9,22 +9,20 @@ use Framework\Session\Session;
 
 class AuthController extends AbsController
 {
-
-
 	public function login()
     {
       AbsView::render('auth/login.php');
     }
 
+	 
    public function registration()
     {
       AbsView::render('auth/registration.php');
 	 }
 
-
 	 
 	public function auth()
-	{
+	 {
 		unset($_SESSION['error']['login']['common']);
 
 		$fields = filter_input_array(INPUT_POST, $_POST, 1);
@@ -36,16 +34,15 @@ class AuthController extends AbsController
 				Session::setName($userData['name']);
 				AbsView::site_redirect('/');
 			} 
-		} else{
+		} else {
 			$_SESSION['error']['login']['common'] = 'Data is not correct';
 		}
 	 }
 	 
-	 
-	 public function logout()
+	public function logout()
     {
-       Session::destroy();
-		 AbsView::site_redirect('/');
+      Session::destroy();
+		AbsView::site_redirect('/');
     }
 	
 }

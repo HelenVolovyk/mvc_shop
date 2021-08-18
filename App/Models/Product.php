@@ -18,34 +18,27 @@ class Product extends AbsModel
   }
 
  
-    public function getProductsList()
+    public function getProductsList($page, $limit, $offset, $order='id', $direction='ASC')
     {
-		 
-		  
-       $sql = "SELECT * FROM {$this->tablename} WHERE quantity > '0' ORDER BY id ";
+       $sql = "SELECT * FROM {$this->tablename} WHERE quantity > '0' ORDER BY $order $direction LIMIT $limit OFFSET $offset";
 		 $sth = $this->db->prepare($sql);
 		 $sth->execute();
 		 $product = $sth->fetchAll(PDO::FETCH_ASSOC);
 		 return !empty( $product) ?  $product : false;
 	 }
  
-    public function getProductsListByPriceUp()
+    public function getProductsListByPriceUp($page, $limit, $offset)
     {
-		
-		  
-       $sql = "SELECT * FROM {$this->tablename} WHERE quantity > '0' ORDER BY price ";
+       $sql = "SELECT * FROM {$this->tablename} WHERE quantity > '0' ORDER BY price LIMIT $limit OFFSET $offset";
 		 $sth = $this->db->prepare($sql);
 		 $sth->execute();
 		 $product = $sth->fetchAll(PDO::FETCH_ASSOC);
 		 return !empty( $product) ?  $product : false;
 	 }
  
-    public function getProductsListByPriceDown()
+    public function getProductsListByPriceDown($page, $limit, $offset)
     {
-		//   $page = intval($page);  
-		//   $offset = ($page-1) * 6;  
-		  
-       $sql = "SELECT * FROM {$this->tablename} WHERE quantity > '0' ORDER BY price DESC ";
+		 $sql = "SELECT * FROM {$this->tablename} WHERE quantity > '0' ORDER BY price DESC LIMIT $limit OFFSET $offset";
 		 $sth = $this->db->prepare($sql);
 		 $sth->execute();
 		 $product = $sth->fetchAll(PDO::FETCH_ASSOC);
@@ -57,16 +50,11 @@ class Product extends AbsModel
 		$sql = "SELECT * FROM {$this->tablename} WHERE id=:id";
 		$sth = $this->db->prepare($sql);
 		$sth->execute([':id' => $id]);
-		  $product = $sth->fetch(PDO::FETCH_ASSOC);
-		  return !empty( $product) ?  $product : false;
+		$product = $sth->fetch(PDO::FETCH_ASSOC);
+		return !empty( $product) ?  $product : false;
     }
   
-	  /**
-     * Возвращает список товаров в указанной категории
-     * @param type $categoryId <p>id категории</p>
-     * @param type $page [optional] <p>Номер страницы</p>
-     * @return type <p>Массив с товарами</p>
-     */
+	
     public  function getProductsListByCategory($category_id)
     {
         $sql = "SELECT * FROM {$this->tablename} 
@@ -74,38 +62,45 @@ class Product extends AbsModel
 		  $sth = $this->db->prepare($sql);
 		  $sth->execute([':category_id' => $category_id]);
 		  $product = $sth->fetchAll(PDO::FETCH_ASSOC);
-
 		  return !empty( $product) ?  $product : false;
 	
 	}
 
-	public  function getProdustsByIds($idsArray)
+	public  function getTotalProductsInCategory($categoryId)
 	{
-		
-	
-		//  $idsString = implode(',', $idsArray);
-		
-		//  $sql = "SELECT * FROM products WHERE id IN ($idsString)";
+		$sql = "SELECT count(id) AS count FROM  {$this->tablename} 
+		WHERE quantity > '0' AND category_id = :category_id";
+	  	$sth = $this->db->prepare($sql);
+	  	$sth->execute([':category_id' => $category_id, PDO::PARAM_INT]);
+ 	   $row = $sth->fetch();
+		return $row['count'];
+	}
 
-		//  $sth = $this->db->prepare($sql);
-		//  $sth->execute();
-		//$sth->setFetchMode(PDO::FETCH_ASSOC);
-		 
-		//  $products = $sth->fetchAll(PDO::FETCH_ASSOC);
-		//  return !empty( $products) ?  $products : false;
+	public  function getTotalProducts()
+	{
+		$sql = "SELECT count(id) AS count FROM  {$this->tablename} 
+		WHERE quantity > '0'";
+	   $sth = $this->db->prepare($sql);
+		$sth->execute();
+		$result = $sth->fetch(PDO::PARAM_INT);
+		return $result['count'];
+	}
 
+	public  function searchProductsName($searchg, $page, $limit, $offset)
+	{
+		$sql = "SELECT * FROM {$this->tablename} WHERE name LIKE '%$searchg%' LIMIT $limit OFFSET $offset";
+		$sth = $this->db->prepare($sql);
+		$sth->execute();
+		$products = $sth->fetchAll(PDO::FETCH_ASSOC);
+		return !empty( $products) ?  $products : false;
+	}
 
-
-		 
-		//  $i = 0;
-		//  $products = array();
-		//  while ($row = $sth->fetch()) {
-		// 	  $products[$i]['id'] = $row['id'];
-		// 	  $products[$i]['code'] = $row['code'];
-		// 	  $products[$i]['name'] = $row['name'];
-		// 	  $products[$i]['price'] = $row['price'];
-		// 	  $i++;
-		//  }
-		//  return $products;
+	public  function getProdustsByIds($idsString)
+	{
+		 $sql = "SELECT id, name, price FROM products WHERE quantity > '0' AND id IN ($idsString)";
+		 $sth = $this->db->prepare($sql);
+		 $sth->execute();
+		 $products = $sth->fetchAll(PDO::FETCH_ASSOC);
+		 return !empty( $products) ?  $products : false;
 	}
 }

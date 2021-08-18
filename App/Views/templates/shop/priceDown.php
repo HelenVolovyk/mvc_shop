@@ -1,7 +1,4 @@
 <?php
-
-use App\Models\Category;
-use App\Models\Product;
 use Framework\Core\AbsView;
 AbsView::render('layouts/header.php');
 ?>
@@ -9,34 +6,27 @@ AbsView::render('layouts/header.php');
 	<section class="shop ">
 
 		<div class="shop__content ">
-
-			<?php if(!empty($_SESSION['errors']['login']['common'])): ?>
-			<div class="alert alert-danger" role="alert">
-				<?php echo $_SESSION['errors']['login']['common'];?>
-			</div>
-			<?php endif; ?>
-
-
 			<div class="container">
 				<div class="breadsearch col-md-12">
 
-					<div class="bread">
+					<div class=" bread ">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a class="breadcrumb__link" href="/">Home</a></li>
 							<li class="breadcrumb-item active" aria-current="page">Shop</li>
 						</ol>
 					</div>
 					<div class="search-box">
-						<form class="search d-flex pull-right" method="GET" class="search-form" action="/products/search/">
-							<input type="text" id='query' name="query" placeholder="search" value="">
+						<form class="search d-flex pull-right" method="POST" action="">
+							<input type="text" id='search' placeholder="search" required>
 							<button type="submit" name="submit-search">
 								<i class="fa fa-search" aria-hidden="true"></i>
 							</button>
+
 						</form>
 					</div>
 				</div>
 
-				<div class="row mt-3">
+				<div class="row">
 					<div class="col-md-2">
 
 						<aside class="product-section container">
@@ -69,7 +59,7 @@ AbsView::render('layouts/header.php');
 									<span>sort by price</span>
 
 									<ul>
-										<li><a href="/products/priceUp/">up</a></li>
+										<li><a href="/products/priceUp">up</a></li>
 										<li><a href="/products/priceDown/">downw</a></li>
 									</ul>
 								</div>
@@ -85,9 +75,9 @@ AbsView::render('layouts/header.php');
 							?>
 							<div class="card" style="width: 18rem;">
 								<a class="cart__link" href="/product/show/<?php echo $product['id']?>">
-									<div class="scale cart-img ">
+									<div class="scale cart-img ibg">
 
-										<img src="http://shop.com/images/<?php echo  $product['img'] ?>" class="abg " alt="...">
+										<img src="../images/products/product1.jpg" class="card-img-top ibg" alt="...">
 									</div>
 								</a>
 
@@ -111,11 +101,11 @@ AbsView::render('layouts/header.php');
 									<p class="card-text">Some quick example text to build on the card title
 										and </p>
 									<div class="price">
-										<small style="color: red; text-decoration: line-through">1200 грн
+										<small style="color: red; text-decoration: line-through">1200грн
 										</small>
-										<div class="printPrice"><?php echo $product['price']; ?> грн</div>
+										<div class="printPrice"><?php echo $product['price']; ?></div>
 									</div>
-									<a href="/cart/to/<?php echo $product['id']; ?>" data-id="<?php echo $product['id']; ?>"
+									<a href="/cart/add/<?php echo $product['id']; ?>" data-id="<?php echo $product['id']; ?>"
 										class="go btn btn-primary add-to-ciart">Go
 										somewhere</a>
 								</div>
@@ -124,7 +114,9 @@ AbsView::render('layouts/header.php');
 							<?php } ?>
 						</div>
 
+
 						<?php echo $pagination->get(); ?>
+
 
 					</div>
 
@@ -132,6 +124,7 @@ AbsView::render('layouts/header.php');
 				</div>
 			</div>
 		</div>
+
 
 	</section>
 </div>

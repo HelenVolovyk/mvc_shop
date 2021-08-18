@@ -2,7 +2,7 @@
 /**
  * Error reporting
  */
-
+ini_set('session.cookie_secure', '0');
 use Framework\Core\AbsModel;
 use Framework\Router\Router;
 
@@ -20,9 +20,10 @@ session_start();
 
 
 
+
 // Вызов Router
 
- try{
+try{
 	$router = new Router; 
 	$router->run();
 
@@ -31,12 +32,12 @@ session_start();
 	}
 	else {
 		throw new \Exception("Controller $controller not found.");
-	 }
+	}
 	  
-	  $action = $router->actionName;
-	  $parameters = $router->parameters;
+	$action = $router->actionName;
+	$parameters = $router->parameters;
 
-	 call_user_func_array([$controller, $action], $parameters);
+	call_user_func_array([$controller, $action], $parameters);
 	
   } catch (Exception $e){
 	

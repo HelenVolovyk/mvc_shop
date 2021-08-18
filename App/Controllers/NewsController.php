@@ -8,8 +8,6 @@ use Framework\Core\View;
 class NewsController extends AbsController{
 	
 	public function list(){
-      
-	
 		echo 'hi, news';
 	}
 }

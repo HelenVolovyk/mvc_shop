@@ -1,0 +1,12 @@
+i.fa.fa-search{
+color: rgb(170, 170, 170);
+}
+input#query{
+	border-bottom: 1px solid rgb(170, 170, 170);
+	color: rgb(165, 165, 165);
+	margin-right: 10px;
+}
+input#search::placeholder{
+	color: rgb(179, 179, 179);
+}
+

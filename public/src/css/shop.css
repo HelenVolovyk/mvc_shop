@@ -73,6 +73,7 @@ p.registr{
 .card{
 	margin-left: 10px;
 	
+	
 }
 .price{
 	display: flex;
@@ -104,8 +105,11 @@ p.card-text{
 	height: 600px;
 }
 
-
-
+@media(max-width: 767px){
+	.card.pr{
+		height: 400px;
+	}
+}
 
 .about__product-wrapper{
 	width: 100%;
@@ -207,3 +211,33 @@ p.card-text{
 	margin: 0 auto;
 }
 
+.breadsearch{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+@media(max-width:767px){
+	.breadsearch{
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+@media(max-width:767px){
+	form.search{
+	width: 100%;
+	margin-bottom: 20px;
+	}
+}
+
+@media(max-width:767px){
+	input#query{
+	width: 95%;
+	}
+}
+
+input.cart_delete{
+	color: red;
+	
+}

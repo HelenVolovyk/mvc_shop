@@ -73,7 +73,7 @@ namespace Framework\Session;
 		if (!empty($_SESSION['user_data'][$key])) {
 			return $_SESSION['user_data'][$key];
 	  }
-	  return null;
+	  return [];
 	}
 	
 	public static  function contains($key): bool

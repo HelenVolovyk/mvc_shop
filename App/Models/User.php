@@ -29,7 +29,6 @@ class User extends AbsModel
    */
   public function create(array $fields)
   {
-
 	$sql = "INSERT INTO {$this->tablename}(`name`, `email`, `pass`) VALUES (:name, :email, :pass)";
 	$fields['pass'] = password_hash($fields['pass'], PASSWORD_DEFAULT);
 	$sth = $this->db->prepare($sql);
@@ -97,6 +96,6 @@ class User extends AbsModel
 	$sth->execute($fields);
 
 	return $this->db->lastInsertId();
-}
+	}
 
 }

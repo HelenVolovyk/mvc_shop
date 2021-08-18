@@ -16,16 +16,15 @@ use SessionHandler;
 class UserController extends AbsController
 {
 	
-		public function store ()
-	{
+	public function store (){
 		
-		 $fields = filter_input_array(INPUT_POST, $_POST, 1);
-		 $userValidate = new UserCreateValidator();
+		$fields = filter_input_array(INPUT_POST, $_POST, 1);
+		$userValidate = new UserCreateValidator();
 
-		 if ($userValidate->storeValidate($fields) && !$userValidate->checkEmailOnExist($fields['email'])){
+		if ($userValidate->storeValidate($fields) && !$userValidate->checkEmailOnExist($fields['email'])){
 			
-			  $user = new User();
-			  $newUser = $user->create($fields);
+			$user = new User();
+			$newUser = $user->create($fields);
 			
 			  if($newUser){
 				 // LogStreamer::info('new user registered', ['user' => $fields['name']]);
@@ -65,7 +64,6 @@ class UserController extends AbsController
 			  if ($fields['old_pass'] != ''){
 					$userData = $user->getUserById($fields['id']);
 				
-				
 					if(password_verify($fields['old_pass'], $userData['pass'])){
 		
 						 if($userValidate->validate_pass($fields['new_pass'])){
@@ -90,22 +88,24 @@ class UserController extends AbsController
 			 
 					unset($fields['old_pass'], $fields['new_pass']);
 			  }
+			  
 			  $user->update($fields);
 
 			  $_SESSION['notification'] = [
 					'type' => 'success',
 					'message' => 'Данные изменены!'
 			  ];
+			  
 			 Session::setname('name', ' ' . $fields['name']);
 
-			  AbsView::site_redirect('home');
+			AbsView::site_redirect('home');
 			  exit();
 		 }
 		 $this->data['data'] = $user->getUserById($_SESSION['user_data']['id']);
 		 $this->data += $userValidate->getErrors();
 
 
-		 AbsView::render('user/edit.php', $this->data);
+		AbsView::render('user/edit.php', $this->data);
 	}
 
 	public function profile()

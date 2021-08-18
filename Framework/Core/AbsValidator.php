@@ -3,9 +3,8 @@ namespace Framework\Core;
 
 abstract class AbsValidator
 {
-    protected $errors = [];
-
-    protected $rules = [];
+   protected $errors = [];
+   protected $rules = [];
 
     public function validate(array $request){
         foreach ($request as $key => $field){

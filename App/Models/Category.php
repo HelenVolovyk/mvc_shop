@@ -33,7 +33,7 @@ class Category extends AbsModel
      * Возвращает массив категорий для списка на сайте
      * @return array <p>Массив с категориями</p>
      */
-    public function getCategoriesList()
+    public function getCategoriesList($page=1)
     {
             
        $sql = ("SELECT * FROM {$this->tablename} WHERE status = '1' ORDER BY id");
@@ -53,6 +53,5 @@ class Category extends AbsModel
 		$category = $sth->fetch(PDO::FETCH_ASSOC);
 		return !empty( $category) ?  $category : false;
     }
-	
 	
  }

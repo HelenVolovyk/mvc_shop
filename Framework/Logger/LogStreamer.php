@@ -40,20 +40,23 @@ class LogStreamer
 		self::$instance = $logger;
 	}
 
-	public static function debug($message, array $context = []){
+	public static function debug($message, array $context = [])
+	{
 		self::getLogger()->addDebug($message, $context);
 	}
 
-	public static function info($message, array $context = []){
-
+	public static function info($message, array $context = [])
+	{
 		self::getLogger()->addInfo($message, $context);
 	}
 
-	public static function warning($message, array $context = []){
+	public static function warning($message, array $context = [])
+	{
 		self::getLogger()->addWarning($message, $context);
 	}
 
-	public static function error($message, array $context = []){
+	public static function error($message, array $context = [])
+	{
 		self::getLogger()->addError($message, $context);
 	}
 
