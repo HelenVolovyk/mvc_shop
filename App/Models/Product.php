@@ -18,9 +18,33 @@ class Product extends AbsModel
   }
 
  
-    public function getProductsList($page, $limit, $offset, $order='id', $direction='ASC')
+    public function getProductsList($limit, $offset, $sort='id', $direction='ASC', $search="")
     {
-       $sql = "SELECT * FROM {$this->tablename} WHERE quantity > '0' ORDER BY $order $direction LIMIT $limit OFFSET $offset";
+		$sqlSearch = "";
+		if($search !== ""){
+			$sqlSearch = "AND name LIKE '%$search%'";
+		}
+		 $sql = "SELECT * FROM {$this->tablename} WHERE quantity > '0' $sqlSearch ORDER BY $sort $direction LIMIT $limit OFFSET $offset";
+		
+		 $sth = $this->db->prepare($sql);
+		 $sth->execute();
+		 $product = $sth->fetchAll(PDO::FETCH_ASSOC);
+		 return !empty( $product) ?  $product : false;
+	 }
+ 
+ 
+    public function getProductsListAjax($id = false)
+    {
+		 $sql = "SELECT * FROM {$this->tablename} WHERE quantity > '0' ";
+		 
+		 if($id){
+			 if($id == 'up'){
+				 $sql .= ' ORDER BY price';
+			 } else if($id == 'down'){
+				$sql .= ' ORDER BY price DESC';
+				 
+			 }
+		 }
 		 $sth = $this->db->prepare($sql);
 		 $sth->execute();
 		 $product = $sth->fetchAll(PDO::FETCH_ASSOC);
@@ -86,9 +110,10 @@ class Product extends AbsModel
 		return $result['count'];
 	}
 
-	public  function searchProductsName($searchg, $page, $limit, $offset)
+	public  function searchProductsName($search, $page, $limit, $offset)
 	{
-		$sql = "SELECT * FROM {$this->tablename} WHERE name LIKE '%$searchg%' LIMIT $limit OFFSET $offset";
+		$page=1;
+		$sql = "SELECT * FROM {$this->tablename} WHERE name LIKE '%$search%' LIMIT $limit OFFSET $offset";
 		$sth = $this->db->prepare($sql);
 		$sth->execute();
 		$products = $sth->fetchAll(PDO::FETCH_ASSOC);

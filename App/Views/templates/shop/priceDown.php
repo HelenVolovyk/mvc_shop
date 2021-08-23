@@ -59,8 +59,8 @@ AbsView::render('layouts/header.php');
 									<span>sort by price</span>
 
 									<ul>
-										<li><a href="/products/priceUp">up</a></li>
-										<li><a href="/products/priceDown/">downw</a></li>
+										<li><a href="/products/priceUp/page-1">up</a></li>
+										<li><a href="/products/priceDown/page-1">downw</a></li>
 									</ul>
 								</div>
 							</div>
@@ -75,39 +75,20 @@ AbsView::render('layouts/header.php');
 							?>
 							<div class="card" style="width: 18rem;">
 								<a class="cart__link" href="/product/show/<?php echo $product['id']?>">
-									<div class="scale cart-img ibg">
-
-										<img src="../images/products/product1.jpg" class="card-img-top ibg" alt="...">
+									<div class="scale cart-img ">
+										<img src="http://shop.com/images/<?php echo  $product['img'] ?>" class="abg " alt="...">
 									</div>
 								</a>
 
-								<div class="cart-link">
-									<a class="badge rounded-pill  flot-right" href=""><i class="fa fa-heart-o fa-2x"
-											aria-hidden="true"></i>
-									</a>
-								</div>
-
-								<div class="new">
-									<?php 
-									if($product['is_new']){?>
-									<img src="" class=" new" slt="">
-									<?php }?>
-
-								</div>
-								<div class="card-body">
+								<div class="card-body mt-2">
 									<h5 class="card-title"><?php echo $product['name']; ?>
 									</h5>
 									<a href="#">category name</a>
-									<p class="card-text">Some quick example text to build on the card title
-										and </p>
+									<p class="card-text"><?php echo $product['description']; ?></p>
 									<div class="price">
-										<small style="color: red; text-decoration: line-through">1200грн
-										</small>
-										<div class="printPrice"><?php echo $product['price']; ?></div>
+
+										<div class="printPrice"><?php echo $product['price']; ?> грн</div>
 									</div>
-									<a href="/cart/add/<?php echo $product['id']; ?>" data-id="<?php echo $product['id']; ?>"
-										class="go btn btn-primary add-to-ciart">Go
-										somewhere</a>
 								</div>
 							</div>
 

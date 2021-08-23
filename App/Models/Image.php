@@ -7,23 +7,18 @@ use PDO;
 
 class Image extends AbsModel
 {
-	protected $tablename = 'images';
-
-  public function __construct()
+	public function __construct()
   {
 	 $this->getDB();
   }
   
   public function store($img)
   {
-	
-	$sql = "INSERT INTO {$this->tableName} (img ) VALUES ('$img')";
+	$sql = "INSERT INTO images (img) VALUES ('$img')";
 	$sth = $this->db->prepare($sql);
-	$sth->execute($img);
-	
-	//$sth->bindParam(':img', $img, PDO::PARAM_STR);
-
-	return $this->db->lastInsertId();
-  }
+	$sth->execute();
+	$img = $sth->fetch(PDO::FETCH_ASSOC);
+	return !empty( $img) ?  $img : false;
+	}
 
 }

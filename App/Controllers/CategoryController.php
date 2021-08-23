@@ -12,7 +12,6 @@ class CategoryController extends AbsController
 {
 	
 	public function index( ){
-      	
 		$categories = new Category();
 		$categories = $categories->getContent();
 						

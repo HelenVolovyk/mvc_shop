@@ -3,19 +3,20 @@ use Framework\Core\AbsView;
 AbsView::render('layouts/header.php');
 ?>
 
-<div class="content">
+<div class="content auth">
 
 	<div class="row">
-		<div class="col-sm">
+		<div class="col-md-12">
 		</div>
-		<div class="col-sm">
-			<?php if(!empty($_SESSION['errors']['login']['common'])): ?>
+		<div class="col-md-12">
+			<?php if(!empty($_SESSION['errors']['login']['common'])):?>
+
 			<div class="alert alert-danger" role="alert">
 				<?php echo $_SESSION['errors']['login']['common'];?>
 			</div>
 			<?php endif; ?>
 
-			<h3>Welcome to our shop</h3>
+			<h2 class="mb-3">Welcome to our shop</h2>
 
 			<form method="POST" action="/auth/">
 				<div class="form-group">
@@ -29,7 +30,7 @@ AbsView::render('layouts/header.php');
 					<?php endif; ?>
 				</div>
 				<div class="form-group">
-					<label for="pass">Пароль</label>
+					<label for="pass">Password</label>
 					<input type="password" class="form-control" id="pass" name="pass"
 						value="<?php echo !empty($data['pass']) ? $data['pass'] : ''; ?>">
 					<?php if(!empty($pass_error)): ?>
@@ -37,9 +38,11 @@ AbsView::render('layouts/header.php');
 						<?php echo $pass_error; ?>
 					</div>
 					<?php endif; ?>
-					<a href="/registration">Форма регистрации</a>
+					<div class="mt-3 mb-3">
+						<a href=" /registration">Registration</a>
+					</div>
 				</div>
-				<button type="submit" class="btn btn-primary">Вход</button>
+				<button type="submit" class="btn btn-primary">Entrance</button>
 			</form>
 		</div>
 		<div class="col-sm">

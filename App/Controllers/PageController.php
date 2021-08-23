@@ -7,6 +7,10 @@ use Framework\Core\AbsView;
 
 class PageController extends AbsController{
 	
+	public function home(){
+		AbsView::render('templates/home/index.php');
+	}
+	
 	public function about(){
 		AbsView::render('templates/pages/about.php');
 	}

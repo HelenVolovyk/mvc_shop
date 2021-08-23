@@ -48,9 +48,11 @@ class Router
 										 
                $controllerName =  array_shift($segments) . 'Controller';
 					$controllerName = ucfirst($controllerName);
-								
+				//var_dump($controllerName);
+				
 					 $this->actionName =   ucfirst(array_shift($segments));
-			
+					//var_dump( $this->actionName);
+					//die;
 					 $this->parameters = $segments;
 					
 					if (class_exists("App\\Controllers\\" . $controllerName)){

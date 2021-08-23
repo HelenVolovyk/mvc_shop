@@ -58,14 +58,47 @@ function ibg(){
 	});
 
 
-	// $(document).ready(function(){
-	// 	$(".add-to-cart").click(function(){
-	// 		var id = $(this).attr("data-id");
-	// 		$.post("/cart/addAjax/"+id, {}, function(data){
-	// 			$("#cart-count").html(data);
-	// 		});
-	// 		return true;
-	// 	});
-	// });
 
+
+// $(document).ready(function(){
+// $(".sort span").click(function(){
+// 	var id = $(this).attr('id');
+// 	$('#fon').css({'display':'block'});
+// 	$('.loader').fadeIn(1000, function(){
+// 		$.ajax({
+// 			url:'',
+// 			data:'',
+// 			type:'get',
+// 			success:function(html){
+
+// 			}
+// 		})
+// 	});
+
+// });
+// });
+
+
+
+// $(document).ready(function() {
+// 	$(".sort span").click(function() {
+// 		var id = $(this).attr('id');
+
+// 			$('#fon').css({'display': 'block'});
+// 			$('#loader').fadeIn(1000, function() {
+// 				$.ajax({
+// 					url: `products/ajax`,
+// 						data: 'sort_id=' + id,
+// 						type: 'get',
+// 						dataType: 'json',
+// 						success: function(html) {
+
+// 						alert('html');
+// 						}
+
+// 			})
+// 		});
+
+// 	});
+// });
 

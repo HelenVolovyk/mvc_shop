@@ -12,7 +12,7 @@ abstract class AbsValidator
                 unset($this->errors["{$key}_error"]);
             }
         }
-        return empty($this->errors) ? true : false;
+        return empty($this->errors);
     }
 
     public function getErrors()

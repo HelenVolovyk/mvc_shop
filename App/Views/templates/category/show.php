@@ -58,31 +58,23 @@ AbsView::render('layouts/header.php');
 							?>
 							<div class="card" style="width: 18rem;">
 								<a class="cart__link" href="/product/show/<?php echo $product['id']?>">
-									<div class="scale cart-img ibg">
+									<div class="scale cart-img ">
 
-										<img src="../images/products/product1.jpg" class="card-img-top ibg" alt="...">
+										<img src="http://shop.com/images/<?php echo  $product['img'] ?>" class="abg " alt="...">
 									</div>
 								</a>
 
-								<div class="cart-link">
-									<a class="badge rounded-pill  flot-right" href=""><i class="fa fa-heart-o fa-2x"
-											aria-hidden="true"></i>
-									</a>
-								</div>
-
-
-								<div class="card-body">
+								<div class="card-body mt-2">
 									<h5 class="card-title"><?php echo $product['name']; ?>
 									</h5>
 									<a href="#">category name</a>
 									<p class="card-text">Some quick example text to build on the card title
 										and </p>
 									<div class="price">
-										<small style="color: red; text-decoration: line-through">1200грн
-										</small>
+
 										<div class="printPrice"><?php echo $product['price']; ?></div>
 									</div>
-									<a href="#" class="go btn btn-primary">Go somewhere</a>
+
 								</div>
 							</div>
 

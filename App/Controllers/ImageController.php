@@ -24,21 +24,19 @@ class ImageController extends AbsController
 			$tname = $_FILES["file"]["tmp_name"];
 		  
 	  		$uploads_dir = 'images';
-		
+			
 			move_uploaded_file($tname, $uploads_dir.'/'.$img);
 
 			 $image = new Image();
-			
-			$connection = mysqli_connect(Config::DB_HOST,  Config::DB_USER, 
-			Config::DB_PASS, Config::DB_NAME);
-
-			$sql = "INSERT INTO images (img ) VALUES ('$img')";
-			if(mysqli_query($connection, $sql)){
-				echo 'Image uploaded uccesfullys';
+			 $image->store($img);
+				
+			if($img){
+				return 'Image uploaded uccesfullys';
+				AbsView::site_redirect('image/store/');
 			} else {
-				echo 'not img';
-			}
-			
+					return 'not img';
+					redirect_back();
+				}
 		
 		}
 	}

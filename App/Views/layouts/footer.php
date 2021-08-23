@@ -1,14 +1,14 @@
-</main>
-<footer class="footer">
-	<h3>Its footer</h3>
-</footer>
+	</main>
+	<footer class="footer">
+		<h3>Its footer</h3>
+	</footer>
 
-</div>
-
-
+	</div>
 
 
 
-</body>
 
-</html>
+
+	</body>
+
+	</html>

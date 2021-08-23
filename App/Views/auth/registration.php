@@ -3,14 +3,14 @@ use Framework\Core\AbsView;
 AbsView::render('layouts/header.php');
 ?>
 
-<div class="content">
+<div class="content auth">
 	<div class="row">
-		<div class="col-sm">
+		<div class="col-md-12">
 		</div>
-		<div class="col-sm">
+		<div class="col-md-12">
 			<form method="POST" action="/user/store/">
 				<div class="form-group">
-					<label for="name">Имя</label>
+					<label for="name">Name</label>
 					<input type="text" class="form-control" id="name" name="name"
 						value="<?php echo !empty($data['name']) ? $data['name'] : ''; ?>">
 					<?php if(!empty($name_error)): ?>
@@ -32,7 +32,7 @@ AbsView::render('layouts/header.php');
 				</div>
 
 				<div class="form-group">
-					<label for="pass">Пароль</label>
+					<label for="pass">Password</label>
 					<input type="password" class="form-control" id="pass" name="pass"
 						value="<?php echo !empty($data['pass']) ? $data['pass'] : ''; ?>">
 					<?php if(!empty($pass_error)): ?>
@@ -42,7 +42,7 @@ AbsView::render('layouts/header.php');
 					<?php endif; ?>
 				</div>
 
-				<button type="submit" class="btn btn-primary">Зарегистрировать</button>
+				<button type="submit" class="btn btn-primary mt-3">Register</button>
 			</form>
 		</div>
 		<div class="col-sm">

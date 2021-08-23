@@ -17,10 +17,8 @@ body {
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
-	/* max-width: 100%;
-	overflow: hidden;
 	top: 0;
-	left: 0; */
+	left: 0; 
 } 
 .main {
 	flex: 1 1 auto;
@@ -29,9 +27,6 @@ body {
 .centered {
 	text-align: center;
 }
-
-
-
 
 ol.breadcrumb {
 	list-style: none;
@@ -60,7 +55,6 @@ input[type="search"]::-webkit-search-decoration{
 	-moz-box-shadow: none;
 	box-shadow: none;
 }
-
 .container-fluid {
 	width: 100%;
 	padding: 0; 
@@ -75,17 +69,21 @@ input[type="search"]::-webkit-search-decoration{
 	flex: 1 0 auto;
 	padding-top: 120px;
 }
+.content.auth{
+	height: 80vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 a, a:visited,
 a:hover{
 	text-decoration: none;
 	position: relative;
 }
-
 a.category__link:hover,
 a.breadcrumb__link:hover{
 	text-decoration: none;
 }
-
 .content__text {
 	font-size: 16px;
 	line-height: 20px;
@@ -116,10 +114,7 @@ a.breadcrumb__link:hover{
 	.content {
 		padding: 80px 0px 0px 0px;
 	}
-	
 } 
-
-
 
 h1, h2, h3, h4, h5, h6 {
 	text-align: center;
@@ -134,8 +129,7 @@ p{
 	background-size: cover;
 	background-repeat: no-repeat;
 	position: relative;
-	}
-	
+}
 .ibg img{
 	width: 0;
 	height: 0;
@@ -144,5 +138,8 @@ p{
 	left: 0;
 	opacity: 0;
 	visibility: hidden;
-	}
+}
 	
+label{
+	color: gray;
+}

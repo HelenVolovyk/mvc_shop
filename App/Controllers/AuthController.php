@@ -32,10 +32,12 @@ class AuthController extends AbsController
 
 			if(password_verify($fields['pass'], $userData['pass'])){
 				Session::setName($userData['name']);
+				Session::setId($userData['id']);
 				AbsView::site_redirect('/');
 			} 
 		} else {
 			$_SESSION['error']['login']['common'] = 'Data is not correct';
+			redirect_back();
 		}
 	 }
 	 

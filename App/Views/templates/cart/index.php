@@ -32,43 +32,32 @@ AbsView::render('layouts/header.php');
 						<tbody>
 							<tr>
 								<?php
-						
-						foreach ($productsCart as $product) {
-																							
+								$total = 0;
+								foreach ($_SESSION['products'] as $product) {												
 						 		?>
 								<td><?php echo $product['name']?></td>
-
-								<td><?php echo $update['count'] ?></td>
-
+								<td><?php echo $product['quantity'] ?></td>
 								<td><?php echo  number_format($product['price'], 2) ?></td>
-								<td><?php echo $item_price  ?></td>
+								<td><?php echo number_format($product['quantity'] * ($product['price']), 2)  ?></td>
 								<td>
 
 									<div class="col-2">
 										<form action="/cart/delete/<?php echo $product['id']; ?> " method="post">
 
 											<input type="submit" class="cart_delete" name=" delete" value="Delete" />
-
-
 										</form>
-
 									</div>
 
 								</td>
-
 							</tr>
 							<?php
-					 			 $total += $item_price;
+					 			 $total += $product['quantity'] * number_format($product['price'], 2) ;
 							}				
 							?>
 
 						</tbody>
-
 					</table>
-
 				</div>
-
-
 			</div>
 
 
@@ -79,11 +68,11 @@ AbsView::render('layouts/header.php');
 					<strong>Total</strong>
 
 					<?php
-						print_r(number_format($total, 2)). ' грн';
+						 print_r(number_format($total, 2)). ' грн';
 					?>
 
 					<div class=" mt-3">
-						<a href="" type="button" class="btn btn-success">Checkout</a>
+						<a href="/cart/checkout" type="button" class="btn btn-success">Checkout</a>
 					</div>
 				</div>
 			</div>
@@ -97,11 +86,8 @@ AbsView::render('layouts/header.php');
 			?>
 
 		</div>
-
 	</section>
 </div>
-
-
 
 
 <?php
