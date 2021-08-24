@@ -29,7 +29,7 @@ AbsView::render('layouts/header.php');
 
 			<div class="col-md-4 pr-3">
 				<div class="card pr md-6 ">
-					<img src="http://shop.com/images/<?php echo  $product['img'] ?>" class="  iibg" alt="">
+					<img src="<?php echo  IMG_PATH . $product['img'] ?>" class="  iibg" alt="">
 
 					<div class="cart-link">
 						<a class="badge badge-pill badge-light flot-right" href=""><i class="fa fa-heart-o fa-3x"

@@ -98,7 +98,7 @@
 				<ul class="header__list">
 
 					<li class="header__link">
-						<a class="header__link" href="/products/page-1"> SHOP</a>
+						<a class="header__link" href="/products"> SHOP</a>
 					</li>
 					<li class="header__link">
 						<a class="header__link" href="/payment">PAYMENT &

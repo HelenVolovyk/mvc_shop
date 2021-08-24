@@ -76,11 +76,11 @@ AbsView::render('layouts/header.php');
 							<div class="card" style="width: 18rem;">
 								<a class="cart__link" href="/product/show/<?php echo $product['id']?>">
 									<div class="scale cart-img ">
-										<img src="http://shop.com/images/<?php echo  $product['img'] ?>" class="abg " alt="...">
+										<img src="<?php echo  IMG_PATH . $product['img'] ?>" class="abg " alt="...">
 									</div>
 								</a>
 
-								<div class="card-body mt-2">
+								<div class="card-body mt-3">
 									<h5 class="card-title"><?php echo $product['name']; ?>
 									</h5>
 									<a href="#">category name</a>

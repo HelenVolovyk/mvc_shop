@@ -60,11 +60,11 @@ AbsView::render('layouts/header.php');
 								<a class="cart__link" href="/product/show/<?php echo $product['id']?>">
 									<div class="scale cart-img ">
 
-										<img src="http://shop.com/images/<?php echo  $product['img'] ?>" class="abg " alt="...">
+										<img src="<?php echo  IMG_PATH . $product['img'] ?>" class="abg " alt="...">
 									</div>
 								</a>
 
-								<div class="card-body mt-2">
+								<div class="card-body mt-3">
 									<h5 class="card-title"><?php echo $product['name']; ?>
 									</h5>
 									<a href="#">category name</a>
@@ -72,7 +72,7 @@ AbsView::render('layouts/header.php');
 										and </p>
 									<div class="price">
 
-										<div class="printPrice"><?php echo $product['price']; ?></div>
+										<div class="printPrice">$ <?php echo $product['price']; ?></div>
 									</div>
 
 								</div>
