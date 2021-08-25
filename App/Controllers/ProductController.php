@@ -20,54 +20,6 @@ class ProductController extends AbsController
 
 		$product = new Product();
 		$products= $product->getProductsList($limit, $offset);
-<<<<<<< HEAD
-	
-	
-		$total = $product->getTotalProducts();
-		$pagination= new Pagination($total, $page, $limit, 'page-');
-
-		// $products = json_encode($products);
-		// echo $products;
-
-
-
-
-//exit(json_encode($products));
-
-AbsView::render('templates/shop/index.php', ['categories' => $categories, 'products' => $products,'pagination' => $pagination]);
-
-// foreach($products as $product){
-// 	printf(`
-	
-// 			<div class="card" style="width: 18rem;">
-// 			<a class="cart__link" href="/product/show/%s">
-// 		<div class="scale cart-img ">
-// 			<img src="http://shop.com/images/%s" class="abg " alt="...">
-// 		</div>
-// 		</a>
-
-// 		<div class="card-body mt-2">
-// 			<h5 class="card-title">%s>
-// 		</h5>
-// 		<a href="#">category name</a>
-// 		<p class="card-text">%s</p>
-// 		<div class="price">
-
-// 			<div class="printPrice">%s грн</div>
-// 		</div>
-// 		</div>
-// 		</div>`,
-// 		$product['id'] , $product['img'], $product['name'], $product['description'], $product['price']
-// 	);
-	
-// }
-// exit();
-}
-
-	public function ajax()
-	{
-		
-=======
 		// var_dump($products[0]['category_name']);
 		// die;
 		
@@ -84,7 +36,6 @@ AbsView::render('templates/shop/index.php', ['categories' => $categories, 'produ
 
 	public function ajax()
 	{
->>>>>>> feature/auth
 		$page = intval($_GET['page']);
 		$limit = $_GET['limit'];
 		$search = $_GET['search'];
@@ -96,10 +47,6 @@ AbsView::render('templates/shop/index.php', ['categories' => $categories, 'produ
 		$products = $product->getProductsList($limit, $offset, $sort, $direction, $search);
 		$products = json_encode($products);
 		echo $products;
-<<<<<<< HEAD
-		
-=======
->>>>>>> feature/auth
 	}  
 
 
@@ -142,25 +89,17 @@ AbsView::render('templates/shop/index.php', ['categories' => $categories, 'produ
 
 	public function show($id){
 
-<<<<<<< HEAD
-=======
 		//var_dump($_SESSION);
->>>>>>> feature/auth
 		$category = new Category();
 		$categories = $category->getCategoriesList();
 		$product = new Product();
 		$product = $product->getProductById($id);
-<<<<<<< HEAD
-
-		AbsView::render('templates/shop/product_show.php', ['categories' => $categories, 'product' => $product] );
-=======
 		$category = $category->getCategoryById($product['category_id']); 
 		
 		AbsView::render('templates/shop/product_show.php', [
 			'categories' => $categories, 
 			'category' => $category, 
 			'product' => $product] );
->>>>>>> feature/auth
 	}
 
 	public function search($page=1)
@@ -169,11 +108,6 @@ AbsView::render('templates/shop/index.php', ['categories' => $categories, 'produ
 		$limit = 6;
 		$offset = $limit * ($page - 1);
 
-<<<<<<< HEAD
-		//$searchg = $_GET['query'];
-
-=======
->>>>>>> feature/auth
 		$category = new Category();
 		$categories = $category->getCategoriesList();
 		$product = new Product();
@@ -191,14 +125,7 @@ AbsView::render('templates/shop/index.php', ['categories' => $categories, 'produ
 		die;
 		}
 
-<<<<<<< HEAD
-		AbsView::render('templates/shop/index.php', ['categories' => $categories, 'products' => $products, 'pagination' =>
-		$pagination]
-		);
-	}
-=======
 		AbsView::render('templates/shop/index.php', ['categories' => $categories, 'products' => $products, 'pagination' => $pagination]);
 		}
->>>>>>> feature/auth
 
 }

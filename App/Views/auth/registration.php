@@ -3,11 +3,7 @@ use Framework\Core\AbsView;
 AbsView::render('layouts/header.php');
 ?>
 
-<<<<<<< HEAD
-<div class="content auth">
-=======
 <div class="content cent">
->>>>>>> feature/auth
 	<div class="row">
 		<div class="col-md-12">
 		</div>

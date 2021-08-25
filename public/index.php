@@ -32,13 +32,6 @@ try{
 	  
 	$action = $router->actionName;
 	$parameters = $router->parameters;
-<<<<<<< HEAD
-	
-	call_user_func_array([$controller, $action], $parameters);
-		
-  } catch (Exception $e) {
-=======
->>>>>>> feature/auth
 	
 	call_user_func_array([$controller, $action], $parameters);
 		

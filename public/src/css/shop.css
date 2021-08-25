@@ -71,10 +71,6 @@ p.registr{
 }
 .card{
 	margin-left: 10px;
-<<<<<<< HEAD
-	
-	
-=======
 	width:18rem;
 }
 @media(max-width: 767px){
@@ -82,7 +78,6 @@ p.registr{
 		margin-left: 0;
 		width: 100%;
 	}
->>>>>>> feature/auth
 }
 .price{
 	display: flex;

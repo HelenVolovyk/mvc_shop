@@ -43,15 +43,6 @@ AbsView::render('layouts/header.php');
 			<div class="col-md-4 pr-3">
 				<div class="card pr md-6 ">
 					<img src="<?php echo  IMG_PATH . $product['img'] ?>" class="  iibg" alt="">
-<<<<<<< HEAD
-
-					<div class="cart-link">
-						<a class="badge badge-pill badge-light flot-right" href=""><i class="fa fa-heart-o fa-3x"
-								aria-hidden="true"></i></a>
-					</div>
-
-=======
->>>>>>> feature/auth
 				</div>
 			</div>
 
@@ -77,23 +68,10 @@ AbsView::render('layouts/header.php');
 
 
 
-<<<<<<< HEAD
-					<form action="/cart/add/<?php echo $product["id"]; ?>/" method="POST" class="form-inline">
-
-						<div class="form-froup  mb-2">
-							<input type="hidden" name="product_id" class="form-content" id="product_id"
-								value="<?php echo  $product['id']?>">
-							<label for="product_count" class="sr-only">Count</label>
-							<input type="number" name="product_count" class="form-content" id="product_count" min="1" max=""
-								value="1" style="width: 55px; height: 35px; margin-right:10px">
-
-						</div>
-=======
 					<div class="">
 						<p>Quantity</p>
 
 						<form action="/cart/add/<?php echo $product["id"]; ?>/" method="POST" class="form-inline">
->>>>>>> feature/auth
 
 							<div class="form-froup  mb-2">
 								<input type="hidden" name="product_id" class="form-content" id="product_id"
@@ -107,26 +85,6 @@ AbsView::render('layouts/header.php');
 							<button type="submit" class="btn btn-primary mb-2 ml-5">Add to Cart</button>
 						</form>
 
-<<<<<<< HEAD
-				<div class=" ac-block-one">
-					<div class="ac-block__item">
-						<div class="ac-block__title">
-							ordering options
-						</div>
-						<div class="ac-block__text">
-
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis natus provident qui
-								dicta
-								nostrum, debitis ratione sunt optio tenetur labore, dolorem error ex iste officia aperiam?
-								Maiores
-								officia ad ratione! moon officia aute, non cupidatat skateboard dolor brunch. Food truck
-								quinoa
-								nesciunt laborum eiusmod.
-								Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-							</p>
-						</div>
-=======
->>>>>>> feature/auth
 					</div>
 
 					<hr>
@@ -149,19 +107,6 @@ AbsView::render('layouts/header.php');
 								</p>
 							</div>
 						</div>
-<<<<<<< HEAD
-						<div class="ac-block__text">
-
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis natus provident qui
-								dicta
-								nostrum, debitis ratione sunt optio tenetur labore, dolorem error ex iste officia aperiam?
-								Maiores
-								officia ad ratione! moon officia aute, non cupidatat skateboard dolor brunch. Food truck
-								quinoa
-								nesciunt laborum eiusmod.
-								Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
-							</p>
-=======
 						<div class="ac-block__item">
 							<div class="ac-block__title">
 								payment options
@@ -178,7 +123,6 @@ AbsView::render('layouts/header.php');
 									Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
 								</p>
 							</div>
->>>>>>> feature/auth
 						</div>
 					</div>
 				</div>

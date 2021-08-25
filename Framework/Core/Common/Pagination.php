@@ -86,13 +86,8 @@ class Pagination
       if (!$text)
         $text = $page;
 
-<<<<<<< HEAD
-        $currentURI = rtrim($_SERVER['REQUEST_URI'], '/') . '/';
-        $currentURI = preg_replace('~/page-[0-9]+~', '', $currentURI);
-=======
        $currentURI = rtrim($_SERVER['REQUEST_URI'], '/') . '/';
        $currentURI = preg_replace('~/page-[0-9]+~', '', $currentURI);
->>>>>>> feature/auth
      
       return
          '<li><a href="' . $currentURI . $this->index . $page . '">' . $text . '</a></li>';
@@ -144,12 +139,8 @@ class Pagination
      	return ceil($this->total / $this->limit);
     }
 
-<<<<<<< HEAD
-}
-=======
 
 	}
 
 
 	
->>>>>>> feature/auth

@@ -12,19 +12,11 @@ class AuthController extends AbsController
     {
 		AbsView::render('auth/login.php');
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> feature/auth
 	 
    public function registration()
     {
       AbsView::render('auth/registration.php');
 	 }
-<<<<<<< HEAD
-
-=======
->>>>>>> feature/auth
 	 
 	public function auth()
 	 {
@@ -44,11 +36,7 @@ class AuthController extends AbsController
 				redirect_back();
 			} 
 		} else {
-<<<<<<< HEAD
-			$_SESSION['error']['login']['common'] = 'Data is not correct';
-=======
 			$SESSION['error']['login']['common'] = 'Data is not correct';
->>>>>>> feature/auth
 			redirect_back();
 		}
 	 }

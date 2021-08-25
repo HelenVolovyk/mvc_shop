@@ -12,10 +12,6 @@ use Monolog\Logger;
 
 class UserController extends AbsController
 {
-<<<<<<< HEAD
-	
-=======
->>>>>>> feature/auth
 	public function store (){
 		
 		$fields = filter_input_array(INPUT_POST, $_POST, 1);
@@ -48,10 +44,6 @@ class UserController extends AbsController
 		 $this->data['data'] = $user->getUserById(Session::get('id'));
 		 AbsView::render('user/edit.php', $this->data);
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> feature/auth
 
 	public function profile()
 	{

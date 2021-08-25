@@ -1,7 +1,5 @@
 <?php
-
 use Framework\Core\AbsView;
-
 AbsView::render('layouts/header.php');
 ?>
 <div class="content">
@@ -78,14 +76,9 @@ AbsView::render('layouts/header.php');
 					<div class=" col-sm-12 col-md-10">
 						<div id="fon"></div>
 						<div id="loader">Loading...</div>
-<<<<<<< HEAD
-
-						<div id="shLine" class="shop-line"></div>
-=======
 						<div id="shLine" class="shop-line"></div>
 
 						<!-- <a data-page="1" data-max="<?php echo $amt; ?>" id="showmore-button" href="#">Show more</a> -->
->>>>>>> feature/auth
 
 						<!-- <?php echo $pagination->get(); ?> -->
 
@@ -147,11 +140,7 @@ $(document).ready(function() {
 			"direction": direction
 		}
 		$('#fon').css({
-<<<<<<< HEAD
-			'display': 'block'
-=======
 			'opacity': '1'
->>>>>>> feature/auth
 		});
 		$('#loader').fadeIn(1000, function() {
 
@@ -168,13 +157,7 @@ $(document).ready(function() {
 				success: function(response) {
 					shopLine.empty();
 					response.forEach((product) => {
-<<<<<<< HEAD
-						const shopCart = $(document.createElement('div')).addClass('card').css(
-							"width",
-							"18rem");
-=======
 						const shopCart = $(document.createElement('div')).addClass('card');
->>>>>>> feature/auth
 						const shop = $(document.createElement('a')).addClass('cart__link');
 						const shopImg = $(document.createElement('div')).addClass(
 							'scale cart-img');
@@ -183,10 +166,7 @@ $(document).ready(function() {
 						const shopBody = $(document.createElement('div')).addClass(
 							'card-body mt-2');
 						const shopTitle = $(document.createElement('H5')).addClass('card-title');
-<<<<<<< HEAD
-=======
 						const shopCategory = $(document.createElement('a'));
->>>>>>> feature/auth
 						const shopText = $(document.createElement('p')).addClass('card-text');
 						const shopPrice = $(document.createElement('div')).addClass('price');
 
@@ -196,30 +176,20 @@ $(document).ready(function() {
 						const aFill = a.html(shopImg.html(img));
 
 						const title = shopTitle.text(`${product.name}`);
-<<<<<<< HEAD
-=======
 						const category = shopCategory.attr("src",
 							`${window.location.origin}/category/show/${product.category_id}`);
 
 						const categoryText = category.text(`${product.category_name}`);
->>>>>>> feature/auth
 						const shText = shopText.text(`${product.description}`);
 						const shPrice = shopPrice.text(`$ ${product.price}`);
 						const divFill = shopBody
 							.html(title)
-<<<<<<< HEAD
-=======
 							.append(categoryText)
->>>>>>> feature/auth
 							.append(shText)
 							.append(shPrice);
 						shopLine.append(shopCart.html(aFill).append(divFill)).hide().fadeIn(2000);
 						$('#fon').css({
-<<<<<<< HEAD
-							'display': 'none'
-=======
 							'opacity': '0'
->>>>>>> feature/auth
 						});
 						$('#loader').fadeOut(1000);
 					})
@@ -228,10 +198,7 @@ $(document).ready(function() {
 				}
 			});
 		});
-<<<<<<< HEAD
-=======
 
->>>>>>> feature/auth
 	};
 });
 </script>
