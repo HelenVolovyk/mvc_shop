@@ -6,11 +6,11 @@
 
 				<div class="med__s">
 					<span>
-						<!-- the best shop in the world -->
+						the best shop in the world
 					</span>
 				</div>
 
-				<div class="header__logo ">
+				<div class="header__logo">
 					<a href="/" class="">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-back"
 							viewBox="0 0 16 16">
@@ -19,85 +19,76 @@
 						</svg>
 					</a>
 				</div>
+
 				<div class="med">
-					<!-- <span class=""> the best shop in the world </span> -->
+					<span class=""> the best shop in the world </span>
 				</div>
 
 
-				<div class="">
-					<ul class="navbar-nav ml-auto ">
+				<div class="end d-flex ">
+					<div class="">
+						<ul class="navbar-nav ml-auto ">
 
-						<div class="name__enter">
+							<div class="name__enter">
 
+								<?php
+							use Framework\Core\Common\Cart;
+							use Framework\Session\Session;
 
-
-
-							<?php if (!Framework\Authentication\Authentication::isAuth()): ?>
-							<li class="nav-item">
-								<a class="nav-link" href="/login"><i class="fa fa-user-o" aria-hidden="true"></i></a>
-							</li>
-							<?php endif?>
-
-
-							<?php if (Framework\Authentication\Authentication::isAuth()): ?>
-							<ul class="navbar-nav float-right">
-								<li class="nav-item dropdown active">
-									<a class="nav-link" href="/user/profile"><?php echo  $_SESSION['user_data']['name'];?></a>
-								</li>
-								<!-- 
-
-
+							if (!Framework\Authentication\Authentication::isAuth()): ?>
 								<li class="nav-item">
-									<a class="nav-link" href="/logout/"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-											height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-											<path fill-rule="evenodd"
-												d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
-											<path fill-rule="evenodd"
-												d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-										</svg></a>
-								</li> -->
+									<a class="nav-link" href="/login"><i class="fa fa-user-o" aria-hidden="true"></i></a>
+								</li>
+								<?php endif?>
 
 
-							</ul>
+								<?php if (Framework\Authentication\Authentication::isAuth()): ?>
+								<ul class="navbar-nav float-right">
+									<li class="nav-item dropdown active">
+										<a class="nav-link name" href="/user/profile"><?php echo  Session::get('name');?></a>
+									</li>
+
+								</ul>
+								<?php endif; ?>
+
+							</div>
+						</ul>
+					</div>
+
+					<div class="d-flex justify-content-end">
+
+						<li class="nav-item">
+							<div class="nav-link cart">
 
 
-							<?php endif; ?>
+								<div class="">
+									<a class="nav-link" href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+									</a>
+								</div>
 
+								<?php 
+								if(Cart::countItems() > 0) :?>
+								<div class="">
+									<span id="cart-count"><?php echo Cart::countItems() ?></span>
+								</div>
+								<?php endif?>
+							</div>
+						</li>
 
-						</div>
-					</ul>
-				</div>
+					</div>
 
-				<div class="d-flex justify-content-end">
-					<!-- <li class="nav-item">
-						<a class="nav-link" href=""><i class="fa fa-heart-o" aria-hidden="true"></i>
+					<li class=" nav-item">
+						<a class="nav-link">
+							<div class="header__burger">
+								<span></span>
+								<span></span>
+								<span></span>
+							</div>
 						</a>
-					</li> -->
-
-					<li class="nav-item">
-						<div class="nav-link cart">
-							<div class="">
-								<a class="nav-link" href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> </a>
-							</div>
-							<div class="">
-
-								<span
-									class="badge badge-pill badge-secondary"><?php echo App\Models\Cart::countItems();?></span>
-							</div>
-						</div>
 					</li>
 
 				</div>
 
-				<li class="nav-item">
-					<a class="nav-link">
-						<div class="header__burger">
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-					</a>
-				</li>
 			</div>
 		</nav>
 	</div>
@@ -112,25 +103,20 @@
 					<li class="header__link">
 						<a class="header__link" href="/products"> SHOP</a>
 					</li>
-
 					<li class="header__link">
 						<a class="header__link" href="/payment">PAYMENT &
 							DELIVERY
 						</a>
 					</li>
-
 					<li class="header__link">
 						<a class="header__link" href="/news">NEWS</a>
 					</li>
-
 					<li class="header__link">
 						<a class="header__link" href="/about">About</a>
 					</li>
-
 					<li class=" header__link">
 						<a class="header__link" href="/contact">Contact</a>
 					</li>
-
 
 
 					<div class="header__enter">

@@ -1,5 +1,7 @@
 <?php
 use Framework\Core\AbsView;
+use Framework\Session\Session;
+
 AbsView::render('layouts/header.php');
 ?>
 
@@ -8,6 +10,17 @@ AbsView::render('layouts/header.php');
 	<section class="product-show">
 
 		<div class="container">
+
+			<?php 
+			
+			if(!empty($_SESSION['error']['login']['common'] )):?>
+			<div class="alert alert-success text-center" role="alert">
+				<?php echo $_SESSION['error']['login']['common'];?>
+			</div>
+			<?php endif; 
+			Session::delete('error','login','common');
+			?>
+
 			<div class="top row" style="margin: 0">
 				<div class="bread col-auto mr-auto">
 					<ol class="breadcrumb">
@@ -28,92 +41,94 @@ AbsView::render('layouts/header.php');
 		<div class="row justify-content-center">
 
 			<div class="col-md-4 pr-3">
-				<div class="card pr md-6 ibg">
-					<img
-						src="
-					https://images.unsplash.com/photo-1607623488994-9f31dbccd667?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-						class=" card-img-top ibg" alt="">
-
-					<div class="cart-link">
-						<a class="badge badge-pill badge-light flot-right" href=""><i class="fa fa-heart-o fa-3x"
-								aria-hidden="true"></i></a>
-					</div>
-
+				<div class="card pr md-6 ">
+					<img src="<?php echo  IMG_PATH . $product['img'] ?>" class="  iibg" alt="">
 				</div>
 			</div>
 
 
 
 			<div class="col-md-4 ">
+				<div class="product__text">
 
-				<p style="color: red; text-decoration: line-through">1200 грн</p>
+					<p style="color: red; text-decoration: line-through">1200 грн</p>
 
-				<p>PRICE: <strong> <?php echo $product['price'] ?> грн</strong></p>
-				<p>SKU: <?php echo $product['SKU'] ?></p>
-				<p>IN STOCK:
-					<strong> <?php echo $product['quantity'] ?></strong>
-				</p>
-				<hr>
+					<p>PRICE: <strong> <?php echo $product['price'] ?> грн</strong></p>
+					<p>SKU: <?php echo $product['SKU'] ?></p>
+					<p>IN STOCK:
+						<strong> <?php echo $product['quantity'] ?></strong>
+					</p>
+					<hr>
 
-				<div class="product_category">
-					<p>CATEGORY</p>
-					<div>category1</div>
-				</div>
-				<hr>
+					<div class="product_category">
+						<p>CATEGORY</p>
+						<a href="/category/show/<?php echo $category['id'] ?>"><?php echo $category['name'] ?> </a>
+					</div>
+					<hr>
 
 
 
-				<div class="">
-					<p>Quantity</p>
+					<div class="">
+						<p>Quantity</p>
 
-					<form action="" method="POST" class="form-inline">
+						<form action="/cart/add/<?php echo $product["id"]; ?>/" method="POST" class="form-inline">
 
-						<div class="form-froup  mb-2">
-							<input type="hidden" name="price_with_discount" value="">
-							<label for="product_count" class="sr-only">Count</label>
-							<input type="number" name="product_count" class="form-content" id="product_count" min="1" max=""
-								value="1" style="width: 55px; height: 35px; margin-right:10px">
+							<div class="form-froup  mb-2">
+								<input type="hidden" name="product_id" class="form-content" id="product_id"
+									value="<?php echo  $product['id']?>">
+								<label for="product_count" class="sr-only">Count</label>
+								<input type="number" name="product_count" class="form-content" id="product_count" min="1" max=""
+									value="1" style="width: 55px; height: 35px; margin-right:10px">
+
+							</div>
+
+							<button type="submit" class="btn btn-primary mb-2 ml-5">Add to Cart</button>
+						</form>
+
+					</div>
+
+					<hr>
+
+					<div class=" ac-block-one">
+						<div class="ac-block__item">
+							<div class="ac-block__title">
+								ordering options
+							</div>
+							<div class="ac-block__text">
+
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis natus provident qui
+									dicta
+									nostrum, debitis ratione sunt optio tenetur labore, dolorem error ex iste officia aperiam?
+									Maiores
+									officia ad ratione! moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+									quinoa
+									nesciunt laborum eiusmod.
+									Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+								</p>
+							</div>
 						</div>
+						<div class="ac-block__item">
+							<div class="ac-block__title">
+								payment options
+							</div>
+							<div class="ac-block__text">
 
-						<button type="submit" class="btn btn-primary mb-2 ml-5">Add to Cart</button>
-					</form>
-
-				</div>
-
-				<hr>
-
-				<div class="ac-block-one">
-					<div class="ac-block__item">
-						<div class="ac-block__title">
-							ordering options
-						</div>
-						<div class="ac-block__text">
-
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis natus provident qui dicta
-								nostrum, debitis ratione sunt optio tenetur labore, dolorem error ex iste officia aperiam?
-								Maiores
-								officia ad ratione! moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-								nesciunt laborum eiusmod.
-								Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla</p>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis natus provident qui
+									dicta
+									nostrum, debitis ratione sunt optio tenetur labore, dolorem error ex iste officia aperiam?
+									Maiores
+									officia ad ratione! moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+									quinoa
+									nesciunt laborum eiusmod.
+									Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+								</p>
+							</div>
 						</div>
 					</div>
-					<div class="ac-block__item">
-						<div class="ac-block__title">
-							payment options
-						</div>
-						<div class="ac-block__text">
-
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis natus provident qui dicta
-								nostrum, debitis ratione sunt optio tenetur labore, dolorem error ex iste officia aperiam?
-								Maiores
-								officia ad ratione! moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
-								nesciunt laborum eiusmod.
-								Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla</p>
-						</div>
-					</div>
 				</div>
-
 			</div>
+
+
 
 			<div class="container">
 				<div class="about__product-wrapper mt-5">
@@ -154,6 +169,7 @@ AbsView::render('layouts/header.php');
 
 		</div>
 	</section>
+</div>
 </div>
 
 <?php

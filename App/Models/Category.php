@@ -12,30 +12,14 @@ class Category extends AbsModel
    */
    protected $tablename = 'categories';
 
-	//  public function getContent()
-	//  {
-	// 	$categories = [
-	// 		['name' => "product1", 'quantity' => 10],
-	// 		['name' => "product2", 'quantity' => 8],
-	// 		['name' => "product3", 'quantity' => 6]
-	// 	 ];
-		 
-	// 	 return $categories;
-	//  }
-
 
 	public function __construct()
 	{
 	  $this->getDB();
 	}
 	
-   /**
-     * Возвращает массив категорий для списка на сайте
-     * @return array <p>Массив с категориями</p>
-     */
-    public function getCategoriesList()
+    public function getCategoriesList($page=1)
     {
-            
        $sql = ("SELECT * FROM {$this->tablename} WHERE status = '1' ORDER BY id");
 		 $sth = $this->db->prepare($sql);
 		 $sth->execute();
@@ -53,6 +37,5 @@ class Category extends AbsModel
 		$category = $sth->fetch(PDO::FETCH_ASSOC);
 		return !empty( $category) ?  $category : false;
     }
-	
 	
  }

@@ -3,9 +3,8 @@ namespace Framework\Core;
 
 abstract class AbsValidator
 {
-    protected $errors = [];
-
-    protected $rules = [];
+   protected $errors = [];
+   protected $rules = [];
 
     public function validate(array $request){
         foreach ($request as $key => $field){
@@ -13,7 +12,7 @@ abstract class AbsValidator
                 unset($this->errors["{$key}_error"]);
             }
         }
-        return empty($this->errors) ? true : false;
+        return empty($this->errors);
     }
 
     public function getErrors()

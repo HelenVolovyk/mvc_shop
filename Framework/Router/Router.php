@@ -6,8 +6,7 @@ use Exception;
 
 /**
  * Класс Router
- *
-*/
+ */
 class Router
 {
 
@@ -37,35 +36,26 @@ class Router
   
     public function run()
     {
-		  $uri = $this->getURI();
+		$uri = $this->getURI();
 	
         foreach ($this->routes as $uriPattern => $path) {
     
             if (preg_match("~$uriPattern~", $uri)) {
 					
-                $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
+               $internalRoute = preg_replace("~$uriPattern~", $path, $uri);
 
-					 $segments = explode('/', $internalRoute);
+					$segments = explode('/', $internalRoute);
 										 
-                $controllerName =  array_shift($segments) . 'Controller';
-					 $controllerName = ucfirst($controllerName);
-				
-				
+               $controllerName =  array_shift($segments) . 'Controller';
+					$controllerName = ucfirst($controllerName);
+								
 					 $this->actionName =   ucfirst(array_shift($segments));
-					
 					 $this->parameters = $segments;
 					
-					 if (class_exists("App\\Controllers\\" . $controllerName)){
-						
+					if (class_exists("App\\Controllers\\" . $controllerName)){
 						$this->controller = "App\\Controllers\\" . $controllerName;
-				
-					 } 
-												             
-				} 
-				
-							
+					} 				          
+				} 								
         }  	
     }
 }
-
-		

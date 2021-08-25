@@ -26,7 +26,7 @@ class UserUpdateValidator extends AbsValidator
 
     public function checkUserEmail(string $email, int $id)
     {
-        $user = new User();
+      $user = new User();
         if(!$user->getUserEmailExeptThisUser($email, $id)){
             $this->errors = [
                 'email_error' => 'Пользователь с такой почтой уже существует'
@@ -34,27 +34,27 @@ class UserUpdateValidator extends AbsValidator
             return true;
         }
 
-        return false;
+      return false;
     }
 
-    public function validate(array $request){
-        unset($request['old_pass'], $request['new_pass'], $request['id']);
+   public function validate(array $request){
+      unset($request['old_pass'], $request['new_pass'], $request['id']);
 
-        foreach ($request as $key => $field){
-            if(preg_match($this->rules[$key], $field)) {
+      foreach ($request as $key => $field){
+         if(preg_match($this->rules[$key], $field)) {
                 unset($this->errors["{$key}_error"]);
-            }
-        }
+         }
+      }
 
-        return empty($this->errors) ? true : false;
-    }
+      return empty($this->errors) ? true : false;
+   }
 
     public function validate_pass(string $pass){
-        if(preg_match($this->rules_pass['pass_new'], $pass)) {
+      if(preg_match($this->rules_pass['pass_new'], $pass)) {
             unset($this->errors_pass["new_pass_error"]);
-        }
+      }
 
-        return empty($this->errors_pass) ? true : false;
+      return empty($this->errors_pass) ? true : false;
     }
 
     public function getErrors_pass()

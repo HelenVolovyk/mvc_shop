@@ -29,7 +29,6 @@ class User extends AbsModel
    */
   public function create(array $fields)
   {
-
 	$sql = "INSERT INTO {$this->tablename}(`name`, `email`, `pass`) VALUES (:name, :email, :pass)";
 	$fields['pass'] = password_hash($fields['pass'], PASSWORD_DEFAULT);
 	$sth = $this->db->prepare($sql);
@@ -55,7 +54,6 @@ class User extends AbsModel
   return !empty($user) ? $user : false;
   }
 
-
   public function getUserById(int $id)
   {
   $sql = "SELECT * FROM {$this->tablename} WHERE id=:id";
@@ -69,34 +67,10 @@ class User extends AbsModel
   {
 	$sql = "SELECT COUNT(*) AS emails FROM {$this->tablename} WHERE id!=:id AND email=:email";
 	$sth = $this->db->prepare($sql);
-	$sth->execute([':id' => $id,
-						':email' => $email]);
+	$sth->execute([':id' => $id, ':email' => $email]);
 	$user = $sth->fetch(PDO::FETCH_ASSOC);
-
 	return ($user['emails']>0) ? false : true;
   }
 
-  public function update(array $fields){
-	$pass = '';
-	if (isset($fields['new_pass'])){
-		 $fields['pass'] = password_hash($fields['new_pass'], PASSWORD_DEFAULT);
-		 $pass = ', pass=:pass';
-		 unset($fields['new_pass']);
-	}
-	$sql = "
-		 UPDATE 
-			  $this->tablename
-		 SET
-			  name = :name,
-			  email = :email
-			  $pass
-		 WHERE
-			  id=:id
-			  ";
-	$sth = $this->db->prepare($sql);
-	$sth->execute($fields);
-
-	return $this->db->lastInsertId();
-}
 
 }

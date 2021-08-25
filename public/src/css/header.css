@@ -169,9 +169,14 @@ a.more:hover::after
 
 
 .header__logo {
-	flex: 0 0 90px;
+	flex: 0 0 15%;
    position: relative;
 	z-index: 3;
+}
+
+.end{
+	flex: 0 0 15%;
+	justify-content: center;
 }
 
 a.tel {
@@ -206,7 +211,6 @@ i.fa.fa-phone.fa-2x:before {
 	.brend__name {
 		display: none;
 	}
-
 	.navbar-brand {
 		display: none;
 	}
@@ -233,7 +237,11 @@ i.fa.fa-phone.fa-2x:before {
 	}
 	.header__logo {
 		flex: 0 0 60px;
-		padding-left: 5px;
+		display: flex;
+		justify-content: flex-start;
+	}
+	.nav-link{
+		padding: 0;
 	}
 	.header__body {
 		height: 15px;
@@ -244,7 +252,7 @@ i.fa.fa-phone.fa-2x:before {
 		width: 30px;
 		height: 20px;
 		z-index: 3;
-		
+		margin-top: 10px;
 	}
 	.header__burger span {
 		position: absolute;
@@ -323,5 +331,21 @@ i.fa.fa-phone.fa-2x:before {
 
 .nav-link.cart{
 	display: flex;
+	padding: 8px 0px;
 }
-
+i.fa.fa-user-o{
+	margin-top: 10px;
+	padding-right: 0;
+}
+span#cart-count{
+	position: absolute;
+	right: 4px;
+}
+i.fa.fa-shopping-cart{
+	width: 40px;
+	
+}
+a.nav-link.name{
+	margin-top: 10px;
+	font-weight: bold;
+}

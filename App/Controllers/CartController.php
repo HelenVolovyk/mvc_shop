@@ -1,76 +1,50 @@
 <?php
 namespace App\Controllers;
 
-use App\Models\Cart;
-use App\Models\Product;
+use App\Models\User;
 use Framework\Core\AbsController;
 use Framework\Core\AbsView;
+use Framework\Core\Common\Cart as CommonCart;
+use Framework\Session\Session;
 
- /**
-     * @param  $productIncart
-     * @var array
-     *
-     * @property array  $productIncart
-     */
-	
-	 
+ 
 class CartController extends AbsController
 {
-
-	public function index()
-	{
-		
-		 $productIncart = false;	
-		 $productsInCart = Cart::getProducts();
-		
-				  if ($productsInCart) {
-					
-						//*$productsIds = array_keys($productsInCart);
-						
-						//  var_dump($productsIds);
-						//  print_r( implode(',', $productsIds));
-						$products = new Product();
-						$products->getProdustsByIds($productsIds);
-					
-						$totalPrice = Cart::getTotalPrice($products);
-				  }
-
-		
+	public function index(){
 		AbsView::render('templates/cart/index.php');
 	}
-
-	public function add($id)
-	{
-
+			
+	public function add($id){
+		if(Session::isUserLogin()){
+			CommonCart::addProduct($id);
+			$_SESSION['error']['login']['common'] = 'The product was added';
+		} else {
+			$_SESSION['error']['login']['common'] = 'Please register';
+				
+			AbsView::render('auth/login.php');
+		}
 	
-		Cart::addProduct($id);
 		redirect_back();
 	}
-
-	 /**
-     * Action для добавления товара в корзину при помощи асинхронного запроса (ajax)
-     * @param integer 
-     */
-    public function AddAjax($id)
-    {
-        echo Cart::addProduct($id);
-        return true;
-	 }
-	 
-
-
-    
+	
     /**
-     * Action для добавления товара в корзину синхронным запросом
-     * @param integer $id <p>id товара</p>
+     * @param integer $id
      */
-    public function Delete($id)
-    {
-        Cart::deleteProduct($id);
+   public function delete($id){
+		CommonCart::deleteProduct($id);
+		$_SESSION['error']['login']['common'] = 'The product was removed';
+	   AbsView::render('templates/cart/index.php');
         
-        header("Location: /cart");
-    }
+	}
 
-  
-
+	public function checkout(){
+		
+		 CommonCart::getProducts();
+		 $user = new User();
+		// var_dump($_SESSION);
+		 $user = $user->getUserById(Session::getId());
+		 AbsView::render('templates/cart/checkout.php', ['user' => $user]);						  
+	}
 }
+
+	
