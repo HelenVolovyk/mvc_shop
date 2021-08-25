@@ -32,14 +32,20 @@ try{
 	  
 	$action = $router->actionName;
 	$parameters = $router->parameters;
+<<<<<<< HEAD
 	
 	call_user_func_array([$controller, $action], $parameters);
 		
   } catch (Exception $e) {
+=======
+>>>>>>> feature/auth
 	
-	echo '<pre>Message:'.$e->getMessage().'</pre>';
-	echo '<pre>File: '.$e->getFile().'</pre>';
-	echo '<pre>Line: '.$e->getLine().'</pre>';
+	call_user_func_array([$controller, $action], $parameters);
+		
+  } catch (Exception $e) {
+		echo '<pre>Message:'.$e->getMessage().'</pre>';
+		echo '<pre>File: '.$e->getFile().'</pre>';
+		echo '<pre>Line: '.$e->getLine().'</pre>';
 }
 
 $absModel = new AbsModel();

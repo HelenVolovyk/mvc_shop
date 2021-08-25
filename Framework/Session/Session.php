@@ -88,4 +88,7 @@ namespace Framework\Session;
 			unset($_SESSION[$key]);
 	  }
 	}
+	public static function isUserLogin(){
+		return !empty($_SESSION['user_data']);
+  }
 }

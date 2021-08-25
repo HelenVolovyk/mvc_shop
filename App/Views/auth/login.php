@@ -1,20 +1,38 @@
 <?php
 use Framework\Core\AbsView;
+use Framework\Session\Session;
+
 AbsView::render('layouts/header.php');
 ?>
 
+<<<<<<< HEAD
 <div class="content auth">
+=======
+<div class="content cent">
+>>>>>>> feature/auth
 
 	<div class="row">
 		<div class="col-md-12">
 		</div>
 		<div class="col-md-12">
+<<<<<<< HEAD
 			<?php if(!empty($_SESSION['errors']['login']['common'])):?>
 
 			<div class="alert alert-danger" role="alert">
 				<?php echo $_SESSION['errors']['login']['common'];?>
+=======
+
+			<?php 
+			 if(!empty($_SESSION['error']['login']['common'])):
+			 ?>
+
+			<div class="alert alert-secondary text-center" role="alert">
+				<?php echo $_SESSION['error']['login']['common'];?>
+>>>>>>> feature/auth
 			</div>
-			<?php endif; ?>
+			<?php endif;
+				Session::delete('error','login','common');
+		   ?>
 
 			<h2 class="mb-3">Welcome to our shop</h2>
 

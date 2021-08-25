@@ -66,12 +66,23 @@ p.registr{
 .shop-line{
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	margin-bottom: 10px;
 }
 .card{
 	margin-left: 10px;
+<<<<<<< HEAD
 	
 	
+=======
+	width:18rem;
+}
+@media(max-width: 767px){
+	.card{
+		margin-left: 0;
+		width: 100%;
+	}
+>>>>>>> feature/auth
 }
 .price{
 	display: flex;

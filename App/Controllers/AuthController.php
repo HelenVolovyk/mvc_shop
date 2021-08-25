@@ -4,22 +4,27 @@ namespace App\Controllers;
 use App\Models\User;
 use Framework\Core\AbsController;
 use Framework\Core\AbsView;
-use Framework\Helpers\SessionHelpers;
 use Framework\Session\Session;
 
 class AuthController extends AbsController
 {
 	public function login()
     {
-      AbsView::render('auth/login.php');
+		AbsView::render('auth/login.php');
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> feature/auth
 	 
    public function registration()
     {
       AbsView::render('auth/registration.php');
 	 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> feature/auth
 	 
 	public function auth()
 	 {
@@ -34,9 +39,16 @@ class AuthController extends AbsController
 				Session::setName($userData['name']);
 				Session::setId($userData['id']);
 				AbsView::site_redirect('/');
+			} else{
+				$_SESSION['error']['login']['common'] = 'Data is not correct';
+				redirect_back();
 			} 
 		} else {
+<<<<<<< HEAD
 			$_SESSION['error']['login']['common'] = 'Data is not correct';
+=======
+			$SESSION['error']['login']['common'] = 'Data is not correct';
+>>>>>>> feature/auth
 			redirect_back();
 		}
 	 }

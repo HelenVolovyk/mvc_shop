@@ -28,6 +28,20 @@
 				<div class="end d-flex ">
 					<div class="">
 						<ul class="navbar-nav ml-auto ">
+<<<<<<< HEAD
+
+							<div class="name__enter">
+
+								<?php
+							use Framework\Core\Common\Cart;
+							use Framework\Session\Session;
+
+							if (!Framework\Authentication\Authentication::isAuth()): ?>
+								<li class="nav-item">
+									<a class="nav-link" href="/login"><i class="fa fa-user-o" aria-hidden="true"></i></a>
+								</li>
+								<?php endif?>
+=======
 
 							<div class="name__enter">
 
@@ -54,6 +68,28 @@
 							</div>
 						</ul>
 					</div>
+>>>>>>> feature/auth
+
+					<div class="d-flex justify-content-end">
+
+<<<<<<< HEAD
+								<?php if (Framework\Authentication\Authentication::isAuth()): ?>
+								<ul class="navbar-nav float-right">
+									<li class="nav-item dropdown active">
+										<a class="nav-link name" href="/user/profile"><?php echo  Session::get('name');?></a>
+									</li>
+=======
+						<li class="nav-item">
+							<div class="nav-link cart">
+>>>>>>> feature/auth
+
+								</ul>
+								<?php endif; ?>
+
+<<<<<<< HEAD
+							</div>
+						</ul>
+					</div>
 
 					<div class="d-flex justify-content-end">
 
@@ -63,6 +99,13 @@
 									<a class="nav-link" href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
 									</a>
 								</div>
+=======
+								<div class="">
+									<a class="nav-link" href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+									</a>
+								</div>
+
+>>>>>>> feature/auth
 								<?php 
 								if(Cart::countItems() > 0) :?>
 								<div class="">
@@ -71,9 +114,15 @@
 								<?php endif?>
 							</div>
 						</li>
+<<<<<<< HEAD
 
 					</div>
 
+=======
+
+					</div>
+
+>>>>>>> feature/auth
 					<li class=" nav-item">
 						<a class="nav-link">
 							<div class="header__burger">

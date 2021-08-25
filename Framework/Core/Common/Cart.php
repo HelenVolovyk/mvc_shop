@@ -28,7 +28,11 @@ class Cart
 			
 			array_push( $_SESSION['products'], $product);			
 			}
+<<<<<<< HEAD
 	
+=======
+			$_SESSION['message'] = 'The product was added';
+>>>>>>> feature/auth
 			return self::countItems();		
    }
 

@@ -69,7 +69,11 @@ input[type="search"]::-webkit-search-decoration{
 	flex: 1 0 auto;
 	padding-top: 120px;
 }
+<<<<<<< HEAD
 .content.auth{
+=======
+.content.cent{
+>>>>>>> feature/auth
 	height: 80vh;
 	display: flex;
 	align-items: center;

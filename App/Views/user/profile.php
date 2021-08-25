@@ -4,19 +4,18 @@ AbsView::render('layouts/header.php');
 ?>
 
 
-<div class="content">
-	<a href="">
-		<h3>my Profile</h3>
-	</a>
-	<a href="">
-		<h3>my WishList</h3>
-	</a>
-	<a href="">
-		<h3>my Orders</h3>
-	</a>
-	<a href="/logout">
-		<h3>quite</h3>
-	</a>
+<div class="content cent">
+	<div class="col-md-10">
+		<a href="">
+			<h3>my Profile</h3>
+		</a>
+		<a href="">
+			<h3>my Orders</h3>
+		</a>
+		<a href="/logout">
+			<h3>quite</h3>
+		</a>
+	</div>
 </div>
 
 <?php

@@ -15,7 +15,13 @@ img.abg{
 	object-fit: cover;
 	object-position: center;
 }
+<<<<<<< HEAD
 
+=======
+.product__text{
+	margin: 20px;
+}	
+>>>>>>> feature/auth
 @media(max-width:767px){
 	img.iibg{
 		width: 100%;

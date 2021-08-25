@@ -1,11 +1,21 @@
 <?php
 use Framework\Core\AbsView;
+use Framework\Session\Session;
+
 AbsView::render('layouts/header.php');
 ?>
 
 <div class="content">
 	<section class="">
 		<div class="container">
+
+			<?php if(!empty($_SESSION['error']['login']['common'])):?>
+			<div class="alert alert-success text-center" role="alert">
+				<?php echo $_SESSION['error']['login']['common'];?>
+			</div>
+			<?php endif; 
+			Session::delete('error','login','common');
+			?>
 
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="/">Home</a></li>

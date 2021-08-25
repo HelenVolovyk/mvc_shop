@@ -20,6 +20,7 @@ class ProductController extends AbsController
 
 		$product = new Product();
 		$products= $product->getProductsList($limit, $offset);
+<<<<<<< HEAD
 	
 	
 		$total = $product->getTotalProducts();
@@ -66,6 +67,24 @@ AbsView::render('templates/shop/index.php', ['categories' => $categories, 'produ
 	public function ajax()
 	{
 		
+=======
+		// var_dump($products[0]['category_name']);
+		// die;
+		
+			
+		$total = $product->getTotalProducts();
+		$pagination= new Pagination($total, $page, $limit, 'page-');
+		
+
+		AbsView::render('templates/shop/index.php', [
+			'categories' => $categories, 
+			'products' => $products,
+			'pagination' => $pagination]);
+	}
+
+	public function ajax()
+	{
+>>>>>>> feature/auth
 		$page = intval($_GET['page']);
 		$limit = $_GET['limit'];
 		$search = $_GET['search'];
@@ -77,7 +96,10 @@ AbsView::render('templates/shop/index.php', ['categories' => $categories, 'produ
 		$products = $product->getProductsList($limit, $offset, $sort, $direction, $search);
 		$products = json_encode($products);
 		echo $products;
+<<<<<<< HEAD
 		
+=======
+>>>>>>> feature/auth
 	}  
 
 
@@ -120,12 +142,25 @@ AbsView::render('templates/shop/index.php', ['categories' => $categories, 'produ
 
 	public function show($id){
 
+<<<<<<< HEAD
+=======
+		//var_dump($_SESSION);
+>>>>>>> feature/auth
 		$category = new Category();
 		$categories = $category->getCategoriesList();
 		$product = new Product();
 		$product = $product->getProductById($id);
+<<<<<<< HEAD
 
 		AbsView::render('templates/shop/product_show.php', ['categories' => $categories, 'product' => $product] );
+=======
+		$category = $category->getCategoryById($product['category_id']); 
+		
+		AbsView::render('templates/shop/product_show.php', [
+			'categories' => $categories, 
+			'category' => $category, 
+			'product' => $product] );
+>>>>>>> feature/auth
 	}
 
 	public function search($page=1)
@@ -134,8 +169,11 @@ AbsView::render('templates/shop/index.php', ['categories' => $categories, 'produ
 		$limit = 6;
 		$offset = $limit * ($page - 1);
 
+<<<<<<< HEAD
 		//$searchg = $_GET['query'];
 
+=======
+>>>>>>> feature/auth
 		$category = new Category();
 		$categories = $category->getCategoriesList();
 		$product = new Product();
@@ -153,9 +191,14 @@ AbsView::render('templates/shop/index.php', ['categories' => $categories, 'produ
 		die;
 		}
 
+<<<<<<< HEAD
 		AbsView::render('templates/shop/index.php', ['categories' => $categories, 'products' => $products, 'pagination' =>
 		$pagination]
 		);
 	}
+=======
+		AbsView::render('templates/shop/index.php', ['categories' => $categories, 'products' => $products, 'pagination' => $pagination]);
+		}
+>>>>>>> feature/auth
 
 }

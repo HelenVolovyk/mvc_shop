@@ -1,7 +1,10 @@
 <?php
 namespace App\Controllers;
 
+<<<<<<< HEAD
 use App\Models\Product;
+=======
+>>>>>>> feature/auth
 use App\Models\User;
 use Framework\Core\AbsController;
 use Framework\Core\AbsModel;
@@ -9,6 +12,7 @@ use Framework\Core\AbsView;
 use Framework\Core\Common\Cart as CommonCart;
 use Framework\Session\Session;
 
+<<<<<<< HEAD
 /**
      * @param  $productIncart
      * @var array
@@ -104,6 +108,46 @@ class CartController extends AbsController
       //   return true;
     }
 
+=======
+ 
+class CartController extends AbsController
+{
+	public function index(){
+		AbsView::render('templates/cart/index.php');
+	}
+			
+	public function add($id){
+		if(Session::isUserLogin()){
+			CommonCart::addProduct($id);
+			$_SESSION['error']['login']['common'] = 'The product was added';
+		} else {
+			$_SESSION['error']['login']['common'] = 'Please register';
+				
+			AbsView::render('auth/login.php');
+		}
+	
+		redirect_back();
+	}
+	
+    /**
+     * @param integer $id
+     */
+   public function delete($id){
+		CommonCart::deleteProduct($id);
+		$_SESSION['error']['login']['common'] = 'The product was removed';
+	   AbsView::render('templates/cart/index.php');
+        
+	}
+
+	public function checkout(){
+		
+		 CommonCart::getProducts();
+		 $user = new User();
+		// var_dump($_SESSION);
+		 $user = $user->getUserById(Session::getId());
+		 AbsView::render('templates/cart/checkout.php', ['user' => $user]);						  
+	}
+>>>>>>> feature/auth
 }
 
 	
