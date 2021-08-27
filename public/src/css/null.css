@@ -13,6 +13,10 @@ body {
 body {
 	background-color: #fff !important;
 }
+ul,
+ol {
+  padding: 0;
+}
 .wrapper {
 	min-height: 100%;
 	display: flex;
@@ -142,4 +146,11 @@ p{
 	
 label{
 	color: gray;
+}
+strong { 
+	color: rgb(122, 122, 122);
+}
+
+li{
+	list-style-type: none;
 }

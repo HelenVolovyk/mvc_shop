@@ -20,8 +20,7 @@ class CartController extends AbsController
 			$_SESSION['error']['login']['common'] = 'The product was added';
 		} else {
 			$_SESSION['error']['login']['common'] = 'Please register';
-				
-			AbsView::render('auth/login.php');
+			AbsView::site_redirect('login');
 		}
 	
 		redirect_back();

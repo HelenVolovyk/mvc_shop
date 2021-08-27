@@ -247,10 +247,10 @@ input.cart_delete{
 }
 
 .sort span{
-	color: blue;
-	text-decoration: underline;
-	cursor: pointer;
+	color:#0d6efd;
+	font-weight: bold;
 }
+
 
 #fon{
 	display: none;
@@ -270,6 +270,11 @@ input.cart_delete{
 	left: 50%;
 	top: 50%;
 	color: rgb(180, 180, 180);
-
-	
+}
+ul.categories{
+	padding-left: 0;
+}
+a.category__link{
+	color:#0d6efd;
+	font-weight: bold;
 }

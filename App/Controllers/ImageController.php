@@ -15,8 +15,6 @@ class ImageController extends AbsController
 	}
 	public function store()
 	{		
-		$msg = '';
-		
 		if(isset($_POST['submit'])){
 		
 			$img = time()."-".$_FILES["file"]["name"];
@@ -31,11 +29,13 @@ class ImageController extends AbsController
 			 $image->store($img);
 				
 			if($img){
-				return 'Image uploaded uccesfullys';
-				AbsView::site_redirect('image/store/');
+				$_SESSION['error']['login']['common'] = 'image successfully saved';
+				AbsView::site_redirect('image');
+				
 			} else {
-					return 'not img';
-					redirect_back();
+				$_SESSION['error']['login']['common'] = 'not img';
+				redirect_back(); 
+					
 				}
 		
 		}

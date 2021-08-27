@@ -20,7 +20,7 @@ class AbsView
 
 	 public static function site_redirect($path = '')
 	{
-		header('Location:' . $path);
+		header('Location:' . SITE_URL . '/' . $path);
 		exit;
 	}
 	 

@@ -20,10 +20,7 @@ class ProductController extends AbsController
 
 		$product = new Product();
 		$products= $product->getProductsList($limit, $offset);
-		// var_dump($products[0]['category_name']);
-		// die;
-		
-			
+				
 		$total = $product->getTotalProducts();
 		$pagination= new Pagination($total, $page, $limit, 'page-');
 		
@@ -37,6 +34,8 @@ class ProductController extends AbsController
 	public function ajax()
 	{
 		$page = intval($_GET['page']);
+	
+		
 		$limit = $_GET['limit'];
 		$search = $_GET['search'];
 		$direction = $_GET['direction'];
@@ -45,6 +44,8 @@ class ProductController extends AbsController
 		$offset = $limit * ($page - 1);
 		$product = new Product();
 		$products = $product->getProductsList($limit, $offset, $sort, $direction, $search);
+		// var_dump($products);
+		// die;
 		$products = json_encode($products);
 		echo $products;
 	}  
@@ -89,7 +90,6 @@ class ProductController extends AbsController
 
 	public function show($id){
 
-		//var_dump($_SESSION);
 		$category = new Category();
 		$categories = $category->getCategoriesList();
 		$product = new Product();

@@ -1,10 +1,21 @@
 <?php
 use Framework\Core\AbsView;
+use Framework\Session\Session;
+
 AbsView::render('layouts/header.php');
 ?>
 
 <div class="content">
 	<div class="container">
+
+		<?php if(!empty($_SESSION['error']['login']['common'])):?>
+		<div class="alert alert-success text-center" role="alert">
+			<?php echo $_SESSION['error']['login']['common'];?>
+		</div>
+		<?php endif; 
+			Session::delete('error','login','common');
+			?>
+
 		<div class="row justify-content-center">
 			<h3>Upload image</h3>
 			<div class="col-md-6">

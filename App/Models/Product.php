@@ -18,19 +18,20 @@ class Product extends AbsModel
   }
 
  
-    public function getProductsList($limit, $offset, $sort='id', $direction='ASC', $search="")
-    {
-		$sqlSearch = "";
-		if($search !== ""){
-			$sqlSearch = "AND name LIKE '%$search%'";
-		}
-		$sql = "SELECT `products`.*, `categories`.`name` AS 'category_name'  FROM {$this->tablename} LEFT JOIN `categories` ON  `products`.`category_id` = `categories`.`id` WHERE quantity > '0' $sqlSearch ORDER BY $sort $direction LIMIT $limit OFFSET $offset ";
-		
-		 $sth = $this->db->prepare($sql);
-		 $sth->execute();
-		 $product = $sth->fetchAll(PDO::FETCH_ASSOC);
-		 return !empty( $product) ?  $product : false;
+  public function getProductsList($limit, $offset, $sort='id', $direction='ASC', $search="")
+  {
+	 $sqlSearch = "";
+	 if($search !== ""){
+		 $sqlSearch = "AND name LIKE '%$search%'";
 	 }
+	 $sql = "SELECT `products`.*, `categories`.`name` AS 'category_name'  FROM {$this->tablename} LEFT JOIN `categories` ON  `products`.`category_id` = `categories`.`id` WHERE quantity > '0' $sqlSearch ORDER BY $sort $direction LIMIT $limit OFFSET $offset ";
+	 
+	  $sth = $this->db->prepare($sql);
+	  $sth->execute();
+	  $product = $sth->fetchAll(PDO::FETCH_ASSOC);
+	  return !empty( $product) ?  $product : false;
+  }
+
  
  
     public function getProductsListAjax($id = false)

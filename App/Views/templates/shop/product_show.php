@@ -33,7 +33,7 @@ AbsView::render('layouts/header.php');
 		</div>
 
 		<div class="col-md-12 mb-3">
-			<h3 class="text-center">
+			<h3 class="product-name text-center">
 				<?php echo $product['name'] ?>
 			</h3>
 		</div>
@@ -51,10 +51,8 @@ AbsView::render('layouts/header.php');
 			<div class="col-md-4 ">
 				<div class="product__text">
 
-					<p style="color: red; text-decoration: line-through">1200 грн</p>
-
-					<p>PRICE: <strong> <?php echo $product['price'] ?> грн</strong></p>
-					<p>SKU: <?php echo $product['SKU'] ?></p>
+					<p>PRICE: <strong>$ <?php echo $product['price'] ?> </strong></p>
+					<p>SKU: <strong><?php echo $product['SKU'] ?> </strong></p>
 					<p>IN STOCK:
 						<strong> <?php echo $product['quantity'] ?></strong>
 					</p>
@@ -78,7 +76,7 @@ AbsView::render('layouts/header.php');
 									value="<?php echo  $product['id']?>">
 								<label for="product_count" class="sr-only">Count</label>
 								<input type="number" name="product_count" class="form-content" id="product_count" min="1" max=""
-									value="1" style="width: 55px; height: 35px; margin-right:10px">
+									value="1" style="width: 55px; height: 35px; margin-right:10px; color: rgb(122, 122, 122)">
 
 							</div>
 
@@ -96,14 +94,18 @@ AbsView::render('layouts/header.php');
 							</div>
 							<div class="ac-block__text">
 
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis natus provident qui
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis natus provident
+									qui
 									dicta
-									nostrum, debitis ratione sunt optio tenetur labore, dolorem error ex iste officia aperiam?
+									nostrum, debitis ratione sunt optio tenetur labore, dolorem error ex iste officia
+									aperiam?
 									Maiores
-									officia ad ratione! moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+									officia ad ratione! moon officia aute, non cupidatat skateboard dolor brunch. Food
+									truck
 									quinoa
 									nesciunt laborum eiusmod.
-									Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+									Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee
+									nulla
 								</p>
 							</div>
 						</div>
@@ -113,14 +115,18 @@ AbsView::render('layouts/header.php');
 							</div>
 							<div class="ac-block__text">
 
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis natus provident qui
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis natus provident
+									qui
 									dicta
-									nostrum, debitis ratione sunt optio tenetur labore, dolorem error ex iste officia aperiam?
+									nostrum, debitis ratione sunt optio tenetur labore, dolorem error ex iste officia
+									aperiam?
 									Maiores
-									officia ad ratione! moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+									officia ad ratione! moon officia aute, non cupidatat skateboard dolor brunch. Food
+									truck
 									quinoa
 									nesciunt laborum eiusmod.
-									Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+									Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee
+									nulla
 								</p>
 							</div>
 						</div>
@@ -144,7 +150,8 @@ AbsView::render('layouts/header.php');
 						<div class="tabs__content content-1">
 
 							<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos delectus exercitationem
-								reiciendis, debitis, eius et, error culpa neque iure quaerat explicabo doloremque tenetur cum
+								reiciendis, debitis, eius et, error culpa neque iure quaerat explicabo doloremque tenetur
+								cum
 								rem. Deserunt quas repellat officia totam?</p>
 
 						</div>
@@ -168,6 +175,7 @@ AbsView::render('layouts/header.php');
 
 
 		</div>
+
 	</section>
 </div>
 </div>

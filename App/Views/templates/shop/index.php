@@ -47,24 +47,23 @@ AbsView::render('layouts/header.php');
 										</a>
 									</div>
 									<div>
-									</div>
-
-									<ul class="categories">
-										<?php
+										<ul class="categories">
+											<?php
                                         foreach ($categories as $category) {
                                             ?>
-										<li class="li-category">
-											<div class="category pb-2">
-												<a class="a-category categ__cart-linck"
-													href="/category/show/<?php echo $category['id']; ?>">
-													<?php echo $category['name']; ?></a>
-											</div>
-										</li>
-										<?php } ?>
-									</ul>
+											<li class="li-category">
+												<div class="category pb-2">
+													<a class="a-category categ__cart-linck"
+														href="/category/show/<?php echo $category['id']; ?>">
+														<?php echo $category['name']; ?></a>
+												</div>
+											</li>
+											<?php } ?>
+										</ul>
+									</div>
 								</div>
 								<div class="sort">
-									sort by price
+									<span class="sort">sort by price</span>
 									<li><a id="up" href="#">up</a></li>
 									<li><a id="down" href="#">down</a>
 									</li>
@@ -176,8 +175,8 @@ $(document).ready(function() {
 						const aFill = a.html(shopImg.html(img));
 
 						const title = shopTitle.text(`${product.name}`);
-						const category = shopCategory.attr("src",
-							`${window.location.origin}/category/show/${product.category_id}`);
+						const category = shopCategory.attr("href",
+							`/category/show/${product.category_id}`);
 
 						const categoryText = category.text(`${product.category_name}`);
 						const shText = shopText.text(`${product.description}`);
