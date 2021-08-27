@@ -12,12 +12,17 @@
         "helen-volovyk/my-mailer": "@dev"
     },
 
-	 "autoload": {
-		"psr-4": {
+	 	"autoload": {
+			"psr-4": {
 
 				 "App\\"     			: "App/",
 				 "Framework\\"       : "Framework/"				
 									
 			}
-		}
+		},
+   		"require-dev": {
+        	"codeception/codeception": "^4.1",
+        	"codeception/module-phpbrowser": "^1.0.0",
+       	"codeception/module-asserts": "^1.0.0"
+    }
 }
