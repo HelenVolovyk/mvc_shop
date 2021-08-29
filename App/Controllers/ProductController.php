@@ -33,21 +33,21 @@ class ProductController extends AbsController
 
 	public function ajax()
 	{
-		$page = intval($_GET['page']);
-	
-		
+		$offset = 0;
 		$limit = $_GET['limit'];
 		$search = $_GET['search'];
 		$direction = $_GET['direction'];
 		$sort = $_GET['sort'];
+		$result = [];	
 		
-		$offset = $limit * ($page - 1);
 		$product = new Product();
 		$products = $product->getProductsList($limit, $offset, $sort, $direction, $search);
-		// var_dump($products);
-		// die;
-		$products = json_encode($products);
-		echo $products;
+
+		$count = $product->getTotalProducts();		
+		$result['data'] = $products;
+		$result['count'] = $count;
+		$result = json_encode($result);
+		echo $result;
 	}  
 
 

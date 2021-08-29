@@ -24,7 +24,7 @@ class Product extends AbsModel
 	 if($search !== ""){
 		 $sqlSearch = "AND name LIKE '%$search%'";
 	 }
-	 $sql = "SELECT `products`.*, `categories`.`name` AS 'category_name'  FROM {$this->tablename} LEFT JOIN `categories` ON  `products`.`category_id` = `categories`.`id` WHERE quantity > '0' $sqlSearch ORDER BY $sort $direction LIMIT $limit OFFSET $offset ";
+	 $sql = "SELECT `products`.*, `categories`.`name` AS 'category_name'  FROM {$this->tablename} LEFT JOIN `categories` ON  `products`.`category_id` = `categories`.`id` WHERE quantity > '0' $sqlSearch ORDER BY $sort $direction LIMIT $limit";
 	 
 	  $sth = $this->db->prepare($sql);
 	  $sth->execute();

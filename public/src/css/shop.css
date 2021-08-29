@@ -68,6 +68,8 @@ p.registr{
 	flex-wrap: wrap;
 	justify-content: center;
 	margin-bottom: 10px;
+	width: 100%;
+	
 }
 .card{
 	margin-left: 10px;
@@ -277,4 +279,7 @@ ul.categories{
 a.category__link{
 	color:#0d6efd;
 	font-weight: bold;
+}
+.shop__content{
+	width: 100vw;
 }

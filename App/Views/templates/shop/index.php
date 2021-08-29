@@ -76,11 +76,6 @@ AbsView::render('layouts/header.php');
 						<div id="fon"></div>
 						<div id="loader">Loading...</div>
 						<div id="shLine" class="shop-line"></div>
-
-						<!-- <a data-page="1" data-max="<?php echo $amt; ?>" id="showmore-button" href="#">Show more</a> -->
-
-						<!-- <?php echo $pagination->get(); ?> -->
-
 					</div>
 				</div>
 			</div>
@@ -94,12 +89,15 @@ AbsView::render('layouts/footer.php');
 <script>
 $(document).ready(function() {
 
-	const limit = 6;
+	let limit = 6;
 	let page = 1;
 	let search = "";
 	let sort = 'price';
 	let direction = 'ASC';
 	let shopLine = $('#shLine');
+	let products = [];
+	let countProducts = 0;
+	let inProcess = false;
 
 	getProduct(page, limit, search, sort, direction);
 
@@ -129,6 +127,15 @@ $(document).ready(function() {
 		return false
 	})
 
+	$(window).scroll(function() {
+	
+      if($(window).scrollTop() + $(window).height() >= $(document).height() && !inProcess && (products.length < countProducts)) {
+			inProcess = true;	
+			limit += 3;				 
+				getProduct(page, limit, search, sort, direction)
+
+				 }
+			});
 
 	function getProduct(page, limit, search, sort, direction) {
 		const data = {
@@ -141,7 +148,7 @@ $(document).ready(function() {
 		$('#fon').css({
 			'opacity': '1'
 		});
-		$('#loader').fadeIn(1000, function() {
+		$('#loader').fadeIn(700, function() {
 
 			$.ajax({
 
@@ -151,11 +158,14 @@ $(document).ready(function() {
 					Accept: "application/json; charset=utf-8",
 				},
 				type: 'GET',
-				url: `ajax`,
+				url: `ajax/`,
 
 				success: function(response) {
+					inProcess = false;
 					shopLine.empty();
-					response.forEach((product) => {
+					countProducts = response.count;
+					products = response.data;
+					response.data.forEach((product) => {
 						const shopCart = $(document.createElement('div')).addClass('card');
 						const shop = $(document.createElement('a')).addClass('cart__link');
 						const shopImg = $(document.createElement('div')).addClass(
@@ -186,11 +196,11 @@ $(document).ready(function() {
 							.append(categoryText)
 							.append(shText)
 							.append(shPrice);
-						shopLine.append(shopCart.html(aFill).append(divFill)).hide().fadeIn(2000);
+						shopLine.append(shopCart.html(aFill).append(divFill)).hide().fadeIn(1500);
 						$('#fon').css({
 							'opacity': '0'
 						});
-						$('#loader').fadeOut(1000);
+						$('#loader').fadeOut(700);
 					})
 
 					search = '';
