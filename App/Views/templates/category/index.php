@@ -4,9 +4,9 @@ AbsView::render('layouts/header.php');
 
 ?>
 
-<h1 class='text-center' mt-3>
+<!-- <h1 class='text-center' mt-3>
 	<?php echo $title ?>
-</h1>
+</h1> -->
 
 
 <div class="content">
@@ -30,15 +30,26 @@ AbsView::render('layouts/header.php');
 
 			<div class="categories__container text-center">
 				<div class="categ__text pt-3 pb-3">
+					<div class="container">
+						<div class="row d-flex justify-content-around">
 
-					<div class="row d-flex justify-content-around">
+							<?php
+                        foreach ($categories as $category) { ?>
 
-						<?php 
-								foreach($categories as $item_=>$value){
-								echo $value['name'] . ': ' . $value['quantity'], '</br>';
-							}
-						 ?>
+							<div class="category__all-link">
 
+								<a class=" a-category categ__cart-linck" href="
+									/category/show/<?php echo $category['id']; ?>">
+									<?php echo $category['name']; ?></a>
+
+								<div class="pt-3"><?php echo $category['description']; ?></div>
+
+							</div>
+
+
+							<?php } ?>
+
+						</div>
 					</div>
 
 

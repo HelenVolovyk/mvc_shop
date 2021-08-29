@@ -43,7 +43,7 @@ AbsView::render('layouts/header.php');
 
 								<div class="category_link ">
 									<div class="mb-2">
-										<a class="category__link" href="/products/page-1/">all categories
+										<a class="category__link" href="/categories">all categories
 										</a>
 									</div>
 									<div>
@@ -128,14 +128,15 @@ $(document).ready(function() {
 	})
 
 	$(window).scroll(function() {
-	
-      if($(window).scrollTop() + $(window).height() >= $(document).height() && !inProcess && (products.length < countProducts)) {
-			inProcess = true;	
-			limit += 3;				 
-				getProduct(page, limit, search, sort, direction)
 
-				 }
-			});
+		if ($(window).scrollTop() + $(window).height() >= $(document).height() && !inProcess && (products
+				.length < countProducts)) {
+			inProcess = true;
+			limit += 3;
+			getProduct(page, limit, search, sort, direction)
+
+		}
+	});
 
 	function getProduct(page, limit, search, sort, direction) {
 		const data = {

@@ -24,7 +24,7 @@ AbsView::render('layouts/header.php');
 
 								<div class="category_link ">
 									<div class="mb-2">
-										<a class="category__link" href="/products">all categories
+										<a class="category__link" href="/categories">all categories
 										</a>
 									</div>
 									<div>
@@ -67,9 +67,8 @@ AbsView::render('layouts/header.php');
 								<div class="card-body mt-3">
 									<h5 class="card-title"><?php echo $product['name']; ?>
 									</h5>
-									<a href="#">category name</a>
-									<p class="card-text">Some quick example text to build on the card title
-										and </p>
+									<a href="/category/show/<?php echo $category['id']?>"><?php echo $category['name'] ?></a>
+									<p class=" card-text"><?php echo $product['description']; ?></p>
 									<div class="price">
 
 										<div class="printPrice">$ <?php echo $product['price']; ?></div>

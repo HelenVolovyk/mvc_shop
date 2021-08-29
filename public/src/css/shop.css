@@ -283,3 +283,18 @@ a.category__link{
 .shop__content{
 	width: 100vw;
 }
+
+.category__all{
+	display: flex;
+}
+
+.category__all-link{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 30%;
+height: 100px;
+margin: 60px 0 100px 0;
+color: gray;
+}

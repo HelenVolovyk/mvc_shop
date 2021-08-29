@@ -22,7 +22,7 @@ class Product extends AbsModel
   {
 	 $sqlSearch = "";
 	 if($search !== ""){
-		 $sqlSearch = "AND name LIKE '%$search%'";
+		 $sqlSearch = "AND products.name LIKE '%$search%'";
 	 }
 	 $sql = "SELECT `products`.*, `categories`.`name` AS 'category_name'  FROM {$this->tablename} LEFT JOIN `categories` ON  `products`.`category_id` = `categories`.`id` WHERE quantity > '0' $sqlSearch ORDER BY $sort $direction LIMIT $limit";
 	 
@@ -128,5 +128,15 @@ class Product extends AbsModel
 		 $sth->execute();
 		 $products = $sth->fetchAll(PDO::FETCH_ASSOC);
 		 return !empty( $products) ?  $products : false;
+	}
+
+	public function getCountProductByCategory()
+	{
+		$sql = "SELECT count(id) AS count FROM  {$this->tablename} 
+		WHERE quantity > '0' ";
+		$sth = $this->db->prepare($sql);
+		$sth->execute();
+		$result = $sth->fetch(PDO::PARAM_INT);
+		return $result['count'];
 	}
 }

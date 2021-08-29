@@ -12,11 +12,11 @@ class CategoryController extends AbsController
 {
 	
 	public function index( ){
-		$categories = new Category();
-		$categories = $categories->getContent();
-						
+		$category = new Category();
+		$categories = $category->getCategoriesList();
+		
 		AbsView::render('templates/category/index.php', 
-		['title' => 'Categories', 'categories' => $categories ]);
+		[ 'categories' => $categories ]);
 		
 	}
 
@@ -24,7 +24,7 @@ class CategoryController extends AbsController
     public function show($id){
 		$category = new Category();
 		$categories = $category->getCategoriesList();
-		
+	
       $category = $category->getCategoryById($id);
 		$category_id = $category['id'];
 		
