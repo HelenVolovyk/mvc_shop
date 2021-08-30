@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Авг 30 2021 г., 20:46
+-- Время создания: Авг 31 2021 г., 00:46
 -- Версия сервера: 8.0.26-0ubuntu0.20.04.2
 -- Версия PHP: 7.4.3
 
@@ -40,10 +40,10 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `description`, `status`) VALUES
-(1, 'sfghsfghsfg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ', 1),
-(2, 'jkgjkgjk', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ', 1),
-(3, 'werertert', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ', 1),
-(4, 'vbxvbxg', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ', 1);
+(1, 'category_name1', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ', 1),
+(2, 'category_name2', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ', 1),
+(3, 'category_name3', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ', 1),
+(4, 'category_name4', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ', 1);
 
 -- --------------------------------------------------------
 
@@ -104,15 +104,15 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `category_id`, `SKU`, `price`, `quantity`, `brand`, `img`, `description`, `is_new`, `is_recommended`) VALUES
-(1, 'gigig', 1, 123, 100, 10, 'jvhj', '1628442704-caroline-attwood-bpPTlXWTOvg-unsplash.jpg\r\n', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 1, 1),
-(2, 'ggdf', 2, 124, 110, 10, 'jvhj', '1628448625-andres-medina-Rm1Ca_g5Wck-unsplash.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 1, 1),
-(3, 'ddf', 3, 125, 150, 10, 'jvhj', '1628448641-caroline-attwood-kC9KUtSiflw-unsplash.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 1, 1),
-(4, 'ddfgg', 4, 126, 150, 10, 'jvhj', '1630020417-stories-8b8k6AsNY6c-unsplash (2).jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 1, 1),
-(5, 'ddfgg', 4, 128, 150, 10, 'jvhj', '1630021669-vinitha-v-LPnJ146r9Mg-unsplash (1).jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 1, 1),
-(6, 'fsdfd', 3, 130, 150, 10, 'jvhj', '1630022677-bermix-studio-KoJgcvbQVNI-unsplash (1).jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 1, 1),
-(7, 'sdfsdf', 2, 222, 200, 5, 'ghjghj', '1630073420-augustine-fou-UnjSrcuf8aE-unsplash (1).jpg', 'cvghnchnb h gfhxfgh sfhsfgh', 1, 1),
-(8, 'xddfzdf', 1, 252, 250, 5, 'ghjghj', '1630072585-jepsoy-sarmiento-_o5mOJ3lOCA-unsplash (1).jpg', 'cvghnchnb h gfhxfgh sfhsfgh', 1, 1),
-(9, 'jklgjkl', 1, 4414, 300, 5, 'ghjghj', '1630072606-jonas-allert-MZ0U0g6RQpQ-unsplash (1).jpg', 'cvghnchnb h gfhxfgh sfhsfgh', 1, 1);
+(1, 'product_name1', 1, 123, 100, 10, 'jvhj', '1628442704-caroline-attwood-bpPTlXWTOvg-unsplash.jpg\r\n', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 1, 1),
+(2, 'product_name2', 2, 124, 110, 10, 'jvhj', '1628448625-andres-medina-Rm1Ca_g5Wck-unsplash.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 1, 1),
+(3, 'product_name3', 3, 125, 150, 10, 'jvhj', '1628448641-caroline-attwood-kC9KUtSiflw-unsplash.jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 1, 1),
+(4, 'product_name4', 4, 126, 150, 10, 'jvhj', '1630020417-stories-8b8k6AsNY6c-unsplash (2).jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 1, 1),
+(5, 'product_name5', 4, 128, 150, 10, 'jvhj', '1630021669-vinitha-v-LPnJ146r9Mg-unsplash (1).jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 1, 1),
+(6, 'product_name6', 3, 130, 150, 10, 'jvhj', '1630022677-bermix-studio-KoJgcvbQVNI-unsplash (1).jpg', 'Lorem Ipsum is simply dummy text of the printing and typesetting ', 1, 1),
+(7, 'product_name7', 2, 222, 200, 5, 'ghjghj', '1630073420-augustine-fou-UnjSrcuf8aE-unsplash (1).jpg', 'cvghnchnb h gfhxfgh sfhsfgh', 1, 1),
+(8, 'product_name8', 1, 252, 250, 5, 'ghjghj', '1630072585-jepsoy-sarmiento-_o5mOJ3lOCA-unsplash (1).jpg', 'cvghnchnb h gfhxfgh sfhsfgh', 1, 1),
+(9, 'product_name9', 1, 4414, 300, 5, 'ghjghj', '1630072606-jonas-allert-MZ0U0g6RQpQ-unsplash (1).jpg', 'cvghnchnb h gfhxfgh sfhsfgh', 1, 1);
 
 -- --------------------------------------------------------
 
