@@ -26,7 +26,4 @@ _Text me up if you somehow manage to screw up the installation procedure LoLzx_
 ###### Admin
 username: admin
 password: 12345678
-###### User
-username: syahnur197
-password: 12345678
 
