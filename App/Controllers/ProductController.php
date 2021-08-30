@@ -103,7 +103,7 @@ class ProductController extends AbsController
 			'categories' => $categories, 
 			'category' => $category, 
 			'product' => $product
-			] );
+			]);
 	}
 
 	public function search($page=1)

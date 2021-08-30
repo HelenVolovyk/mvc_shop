@@ -24,8 +24,9 @@ class CategoryController extends AbsController
 		$category = new Category();
 		$categories = $category->getCategoriesList();
 	
-      $category = $category->getCategoryById($id);
+		$category = $category->getCategoryById($id);
 		$category_id = $category['id'];
+		$category_name = $category['name'];
 		
 		$product = new Product();
       $products = $product->getProductsListByCategory($category_id);
@@ -33,7 +34,8 @@ class CategoryController extends AbsController
 		AbsView::render('templates/category/show.php', [
 			'categories' => $categories, 
 			'products' => $products, 
-			'category_id' => $category_id
+			'category_id' => $category_id,
+			'category_name' => $category_name
 			]);
 	}
 	 

@@ -50,7 +50,7 @@ AbsView::render('layouts/header.php');
 					</div>
 
 					<div class=" col-sm-12 col-md-10">
-						<h2>in <?php echo $category['name']; ?> category <?php echo count($products) ?> products</h2>
+						<h2>in <?php echo $category_name; ?> category <?php echo count($products) ?> products</h2>
 						<div class="shop-line mt-3">
 							<?php
 								foreach($products as $product){
@@ -66,7 +66,7 @@ AbsView::render('layouts/header.php');
 								<div class="card-body mt-3">
 									<h5 class="card-title"><?php echo $product['name']; ?>
 									</h5>
-									<a href="/category/show/<?php echo $category['id']?>"><?php echo $category['name'] ?></a>
+									<a href="/category/show/<?php echo $category['id']?>"><?php echo $category_name ?></a>
 									<p class=" card-text"><?php echo $product['description']; ?></p>
 									<div class="price">
 
