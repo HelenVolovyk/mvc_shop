@@ -30,14 +30,11 @@ class OrderController extends AbsController
 		$fields['total'] = $total;
 	
 		$id = $order->save($fields); 
-
 		$order = $order->getOrderById($id); 
 	
-
 		$logger = new Logger('INFO LOGGER');
 		$logger->pushHandler(new  StreamHandler(ROOT_PATH . '/Framework/Logger/info/log', Logger::INFO));
 		$logger->info('new ORDER registered', ['total' => $total, 'time' => date('H:i:s d.m.Y')]);
-		
 		
 		$subject = 'new order';
 		$templateName = 'confirmOfPurchase';
@@ -49,14 +46,15 @@ class OrderController extends AbsController
 			];
 		$to = 'mr0778240@gmail.com';	
 
-		Message::send( $subject, $templateName, $vars, $to);
+		Message::send($subject, $templateName, $vars, $to);
 		
 		Session::delete('products');	
 
-		AbsView::render('templates/cart/thankyou.php', ['total' => $total, 'user' => $user, 'id' => $id]);
-		
+		AbsView::render('templates/cart/thankyou.php', [
+			'total' => $total, 
+			'user' => $user, 
+			'id' => $id
+			]);
 	}
-
-
 	
 }

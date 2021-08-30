@@ -3,7 +3,6 @@ use Framework\Core\AbsView;
 AbsView::render('layouts/header.php');
 ?>
 
-
 <div class="content cent">
 	<div class="col-md-10">
 		<a href="">

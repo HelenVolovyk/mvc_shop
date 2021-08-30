@@ -15,7 +15,7 @@ AbsView::render('layouts/header.php');
 			<?php endif; ?>
 
 			<div class="container">
-				<div class="breadsearch col-md-12">
+				<div class="breadsearch col-md-12 col-sm-12">
 
 					<div class="bread">
 						<ol class="breadcrumb">
@@ -72,7 +72,7 @@ AbsView::render('layouts/header.php');
 						</aside>
 					</div>
 
-					<div class=" col-sm-12 col-md-10">
+					<div class="col-sm-12 col-md-10">
 						<div id="fon"></div>
 						<div id="loader">Loading...</div>
 						<div id="shLine" class="shop-line"></div>

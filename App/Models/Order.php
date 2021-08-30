@@ -7,26 +7,23 @@ use PDO;
 class Order extends AbsModel
 {
 
-	/**
-   * @var string
-   */
   protected $tablename = 'orders';
 
   public function __construct()
   {
-	 $this->getDB();
+    $this->getDB();
   }
 	
-	public function save($fields)
-	{
+  public function save($fields)
+  {
 	
-		$sql = 'INSERT INTO orders (name, email, phone, address, total, created_at) '
+	  $sql = 'INSERT INTO orders (name, email, phone, address, total, created_at) '
 					. 'VALUES (:name, :email,  :phone, :address,  :total, :timestamp)';
-		$fields['timestamp'] = date('Y-m-d H:i:s');
-		$sth = $this->db->prepare($sql);
-		$sth->execute($fields);
-		$order = $sth->fetch(PDO::FETCH_ASSOC);
-		return $this->db->lastInsertId(); 
+	  $fields['timestamp'] = date('Y-m-d H:i:s');
+	  $sth = $this->db->prepare($sql);
+	  $sth->execute($fields);
+	  $order = $sth->fetch(PDO::FETCH_ASSOC);
+	  return $this->db->lastInsertId(); 
 		 
 	}
 

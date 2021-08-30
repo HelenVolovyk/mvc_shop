@@ -4,8 +4,6 @@ AbsView::render('layouts/header.php');
 ?>
 
 
-
-
 <section id="carousel">
 
 	<div class="container-fluid">

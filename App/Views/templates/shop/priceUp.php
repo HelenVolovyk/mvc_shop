@@ -96,9 +96,6 @@ AbsView::render('layouts/header.php');
 						</div>
 
 
-						<?php echo $pagination->get(); ?>
-
-
 					</div>
 
 

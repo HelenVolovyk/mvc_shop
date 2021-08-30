@@ -8,8 +8,8 @@ AbsView::render('layouts/header.php');
 		<div class="container">
 			<h1 class="text-center">Checkout</h1>
 			<div class="row justify-content-space-between">
-				<div class="col-md-6">
 
+				<div class="col-md-6">
 					<form action="/order/create/" method="POST" id="checkout-form">
 
 						<div class="">
@@ -86,9 +86,7 @@ AbsView::render('layouts/header.php');
 						 print_r(number_format($total, 2)). ' грн';
 						?>
 
-
 					</div>
-
 				</div>
 
 
@@ -96,6 +94,8 @@ AbsView::render('layouts/header.php');
 		</div>
 	</div>
 
-</section><?php
+</section>
+
+<?php
 AbsView::render('layouts/footer.php');
 ?>

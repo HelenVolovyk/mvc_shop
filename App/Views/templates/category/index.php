@@ -1,7 +1,6 @@
 <?php
 use Framework\Core\AbsView;
 AbsView::render('layouts/header.php');
-
 ?>
 
 <!-- <h1 class='text-center' mt-3>
@@ -37,24 +36,20 @@ AbsView::render('layouts/header.php');
                         foreach ($categories as $category) { ?>
 
 							<div class="category__all-link">
-
 								<a class=" a-category categ__cart-linck" href="
 									/category/show/<?php echo $category['id']; ?>">
 									<?php echo $category['name']; ?></a>
 
 								<div class="pt-3"><?php echo $category['description']; ?></div>
-
 							</div>
-
 
 							<?php } ?>
 
 						</div>
 					</div>
-
-
 				</div>
 			</div>
+
 		</div>
 	</div>
 </div>

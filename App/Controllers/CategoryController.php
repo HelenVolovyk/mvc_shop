@@ -10,18 +10,17 @@ use Framework\Core\AbsView;
 
 class CategoryController extends AbsController
 {
-	
-	public function index( ){
+	public function index( )
+	{
 		$category = new Category();
 		$categories = $category->getCategoriesList();
 		
 		AbsView::render('templates/category/index.php', 
 		[ 'categories' => $categories ]);
-		
 	}
 
-	
-    public function show($id){
+	public function show($id)
+	{
 		$category = new Category();
 		$categories = $category->getCategoriesList();
 	
@@ -31,8 +30,12 @@ class CategoryController extends AbsController
 		$product = new Product();
       $products = $product->getProductsListByCategory($category_id);
 
-		AbsView::render('templates/category/show.php', ['categories' => $categories, 'products' => $products, 'category_id' => $category_id]   );
-	 }
+		AbsView::render('templates/category/show.php', [
+			'categories' => $categories, 
+			'products' => $products, 
+			'category_id' => $category_id
+			]);
+	}
 	 
 }
   

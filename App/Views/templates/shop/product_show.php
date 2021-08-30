@@ -6,14 +6,11 @@ AbsView::render('layouts/header.php');
 ?>
 
 <div class="content">
-
 	<section class="product-show">
-
 		<div class="container">
 
 			<?php 
-			
-			if(!empty($_SESSION['error']['login']['common'] )):?>
+			  if(!empty($_SESSION['error']['login']['common'] )):?>
 			<div class="alert alert-success text-center" role="alert">
 				<?php echo $_SESSION['error']['login']['common'];?>
 			</div>
@@ -46,8 +43,6 @@ AbsView::render('layouts/header.php');
 				</div>
 			</div>
 
-
-
 			<div class="col-md-4 ">
 				<div class="product__text">
 
@@ -64,8 +59,6 @@ AbsView::render('layouts/header.php');
 					</div>
 					<hr>
 
-
-
 					<div class="">
 						<p>Quantity</p>
 
@@ -79,7 +72,6 @@ AbsView::render('layouts/header.php');
 									value="1" style="width: 55px; height: 35px; margin-right:10px; color: rgb(122, 122, 122)">
 
 							</div>
-
 							<button type="submit" class="btn btn-primary mb-2 ml-5">Add to Cart</button>
 						</form>
 
@@ -175,12 +167,10 @@ AbsView::render('layouts/header.php');
 
 
 		</div>
-
 	</section>
 </div>
 </div>
 
 <?php
-
  AbsView::render('layouts/footer.php');
 ?>

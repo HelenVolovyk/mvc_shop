@@ -4,7 +4,6 @@ AbsView::render('layouts/header.php');
 ?>
 <div class="content">
 	<section class="shop ">
-
 		<div class="shop__content ">
 			<div class="container">
 				<div class="top row" style="margin: 0">
@@ -79,18 +78,13 @@ AbsView::render('layouts/header.php');
 
 							<?php } ?>
 						</div>
-
-
 					</div>
-
-
 				</div>
 			</div>
 		</div>
-
-
 	</section>
 </div>
+
 <?php
 AbsView::render('layouts/footer.php');
 ?>

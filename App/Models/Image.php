@@ -8,9 +8,9 @@ use PDO;
 class Image extends AbsModel
 {
 	public function __construct()
-  {
+  	{
 	 $this->getDB();
-  }
+   }
   
   public function store($img)
   {

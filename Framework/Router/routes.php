@@ -20,9 +20,9 @@ return array(
 	'products/search/page-([0-9]+)'   	 => 'product/search/$1',
 	'product/show/([0-9]+)'					 => 'product/show/$1',
 
-	 //category
-	 'category/show/([0-9]+)' 		=> 'category/show/$1', 
-	 'categories'   					=> 'category/index',
+	//category
+	'category/show/([0-9]+)' 		=> 'category/show/$1', 
+	'categories'   					=> 'category/index',
 
 	//cart
 	'cart'      						=> 'cart/index',

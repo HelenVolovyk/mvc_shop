@@ -6,30 +6,27 @@ use PDO;
 
 class Product extends AbsModel
 {
-	
-	/**
-   * @var string
-   */
+
   protected $tablename = 'products';
 
   public function __construct()
   {
-	 $this->getDB();
+    $this->getDB();
   }
 
  
   public function getProductsList($limit, $offset, $sort='id', $direction='ASC', $search="")
   {
-	 $sqlSearch = "";
+    $sqlSearch = "";
 	 if($search !== ""){
 		 $sqlSearch = "AND products.name LIKE '%$search%'";
 	 }
 	 $sql = "SELECT `products`.*, `categories`.`name` AS 'category_name'  FROM {$this->tablename} LEFT JOIN `categories` ON  `products`.`category_id` = `categories`.`id` WHERE quantity > '0' $sqlSearch ORDER BY $sort $direction LIMIT $limit";
 	 
-	  $sth = $this->db->prepare($sql);
-	  $sth->execute();
-	  $product = $sth->fetchAll(PDO::FETCH_ASSOC);
-	  return !empty( $product) ?  $product : false;
+	 $sth = $this->db->prepare($sql);
+	 $sth->execute();
+	 $product = $sth->fetchAll(PDO::FETCH_ASSOC);
+	 return !empty( $product) ?  $product : false;
   }
 
  

@@ -1,11 +1,10 @@
 <?php
 namespace App\Controllers;
 
-use App\Config;
 use App\Models\Image;
 use Framework\Core\AbsController;
 use Framework\Core\AbsView;
-use PDO;
+
 
 class ImageController extends AbsController
 {
@@ -13,6 +12,7 @@ class ImageController extends AbsController
 	{
 		AbsView::render('admin/image.php');
 	}
+	
 	public function store()
 	{		
 		if(isset($_POST['submit'])){

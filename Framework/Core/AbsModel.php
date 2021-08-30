@@ -10,22 +10,23 @@ class AbsModel
    protected $tableName = '';
    protected $db = null;
 
-   protected function getDB(){
+	protected function getDB()
+	{
 
-      if ($this->db === null){
+     if ($this->db === null){
 			  
-			$dsn = 'mysql:host=' . Config::DB_HOST . ';dbname=' . Config::DB_NAME . ';charset=utf8';
+		  $dsn = 'mysql:host=' . Config::DB_HOST . ';dbname=' . Config::DB_NAME . ';charset=utf8';
 				
-				$opt = array(
-					PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-					PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-					PDO::ATTR_EMULATE_PREPARES   => false
-			  );
+		  $opt = array(
+				PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+				PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+				PDO::ATTR_EMULATE_PREPARES   => false
+			);
 			  
-            $this->db = new PDO($dsn, Config::DB_USER, Config::DB_PASS, $opt);
+         $this->db = new PDO($dsn, Config::DB_USER, Config::DB_PASS, $opt);
 							
-			}
-	 }
+		}
+	}
 
 
 	protected static $viewPath2 =  '/Framework/Database/';
@@ -33,12 +34,12 @@ class AbsModel
 	public function getArg($file)
 	{
 	 
-		$file = ROOT_PATH . static::$viewPath2 . $arg;
+	  $file = ROOT_PATH . static::$viewPath2 . $arg;
 				 
-			if (file_exists($file)){
+	    if (file_exists($file)){
 				require $file;
-			 }	else {
-				 throw new \Exception("$file not found.");
-			}
+		  } else {
+			 throw new \Exception("$file not found.");
+		  }
 	 }
 }

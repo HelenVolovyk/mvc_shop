@@ -86,3 +86,4 @@
 [2021-08-26T23:46:19.122200+03:00] INFO LOGGER.INFO: new ORDER registered {"total":200.0,"time":"23:46:19 26.08.2021"} []
 [2021-08-26T23:51:35.731235+03:00] INFO LOGGER.INFO: new ORDER registered {"total":110.0,"time":"23:51:35 26.08.2021"} []
 [2021-08-26T23:53:35.849138+03:00] INFO LOGGER.INFO: new ORDER registered {"total":100.0,"time":"23:53:35 26.08.2021"} []
+[2021-08-30T18:46:36.364817+03:00] INFO LOGGER.INFO: new ORDER registered {"total":1050.0,"time":"18:46:36 30.08.2021"} []

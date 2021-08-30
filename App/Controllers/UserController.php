@@ -12,8 +12,8 @@ use Monolog\Logger;
 
 class UserController extends AbsController
 {
-	public function store (){
-		
+	public function store ()
+	{
 		$fields = filter_input_array(INPUT_POST, $_POST, 1);
 		$userValidate = new UserCreateValidator();
 
@@ -23,12 +23,10 @@ class UserController extends AbsController
 			$newUser = $user->create($fields);
 			
 			  if($newUser){
-			
 				 $logger = new Logger('INFO LOGGER');
 			    $logger->pushHandler(new  StreamHandler(INFOLOG_PATH , Logger::INFO));
 				 $logger->info('new user registered', ['user' => $fields['name'], 'time' => date('H:i:s d.m.Y')]);
 				 AbsView::site_redirect('/login');			
-		
 			  } else {
 				  die("500 - Ooops, smth went wrong "); 
 			  }      
@@ -39,10 +37,11 @@ class UserController extends AbsController
 		AbsView::render('auth/registration.php', $this->data);
 	}
 
-	public function index (){
-		 $user = new User();
-		 $this->data['data'] = $user->getUserById(Session::get('id'));
-		 AbsView::render('user/edit.php', $this->data);
+	public function index ()
+	{
+		$user = new User();
+		$this->data['data'] = $user->getUserById(Session::get('id'));
+		AbsView::render('user/edit.php', $this->data);
 	}
 
 	public function profile()

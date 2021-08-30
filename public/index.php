@@ -1,7 +1,4 @@
 <?php
-/**
- * Error reporting
- */
 
 use Framework\Core\AbsModel;
 use Framework\Router\Router;
@@ -39,6 +36,6 @@ try{
 		echo '<pre>Message:'.$e->getMessage().'</pre>';
 		echo '<pre>File: '.$e->getFile().'</pre>';
 		echo '<pre>Line: '.$e->getLine().'</pre>';
-}
+	}
 
 $absModel = new AbsModel();

@@ -6,7 +6,7 @@ AbsView::render('layouts/header.php');
 ?>
 
 <div class="content">
-	<section class="">
+	<section>
 		<div class="container">
 
 			<?php if(!empty($_SESSION['error']['login']['common'])):?>
@@ -50,14 +50,12 @@ AbsView::render('layouts/header.php');
 								<td><?php echo  number_format($product['price'], 2) ?></td>
 								<td><?php echo number_format($product['quantity'] * ($product['price']), 2)  ?></td>
 								<td>
-
 									<div class="col-2">
 										<form action="/cart/delete/<?php echo $product['id']; ?> " method="post">
 
 											<input type="submit" class="cart_delete" name=" delete" value="Delete" />
 										</form>
 									</div>
-
 								</td>
 							</tr>
 							<?php

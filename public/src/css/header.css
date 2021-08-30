@@ -27,7 +27,6 @@ a.more:focus::after {
 	width: 0%;
 }
 
-
 a.header__link:hover,
 a.rec__link:hover,
 a.recipes__link:hover,
@@ -71,9 +70,7 @@ a.more:hover{
 }
 
 .header__body {
-
 	display: flex;
-	
 	justify-content: center;
 	align-items: center;
 	height: 40px;
@@ -81,7 +78,10 @@ a.more:hover{
 	background-color: rgba(158, 158, 158, 0.507);
 	overflow: hidden;
 	border-bottom: 4px solid white;
-	@media(max-width:767px){
+}
+
+@media(max-width:767px){
+	.header__body{
 		border-bottom: 0;
 	}
 }
@@ -125,13 +125,13 @@ a.header__link {
 }
 a.header__link.active{
 	color:#007bff;
-	border-bottom: 3px solid #007bff; /*задаём цвет линии*/
+	border-bottom: 3px solid #007bff; 
 	padding-bottom: 1px;
 }
 
 a.product__link.active{
 	color: #007bff;
-	border-bottom: 2px solid #007bff; /*задаём цвет линии*/
+	border-bottom: 2px solid #007bff; 
 	
 }
 a.header__link:after,
@@ -143,12 +143,11 @@ a.more::after
  {
 	display: block;
 	position: absolute;
-	left: 0; /*изменить на right:0;, чтобы изменить направление подчёркивания */
-	width: 0;/*задаём длинну линии до наведения курсора*/
-	height: 2px; /*задаём ширину линии*/
-	background-color: #007bff; /*задаём цвет линии*/
-	content: "";
-	transition: width 0.3s ease-out; /*задаём время анимации*/
+	left: 0; 
+	width: 0;
+	height: 2px;
+	background-color: #007bff; 
+	transition: width 0.3s ease-out; 
 }
 a.header__link:hover:after,
 a.header__link:focus:after,
@@ -162,11 +161,9 @@ a.product__link:hover:after,
 a.product__link:focus:after,
 a.more:focus::after,
 a.more:hover::after
-
 {
 	width: 100%;
 }
-
 
 .header__logo {
 	flex: 0 0 15%;
@@ -197,11 +194,9 @@ i.fa.fa-phone.fa-2x:before {
 	display: none;
 }
 
-
 .navbar-brand {
 	max-width: 120px;
 }
-
 
 
 @media (max-width: 767px) {
@@ -239,6 +234,7 @@ i.fa.fa-phone.fa-2x:before {
 		flex: 0 0 60px;
 		display: flex;
 		justify-content: flex-start;
+		margin-left: 5px;
 	}
 	.nav-link{
 		padding: 0;
@@ -253,6 +249,7 @@ i.fa.fa-phone.fa-2x:before {
 		height: 20px;
 		z-index: 3;
 		margin-top: 10px;
+		margin-right: 10px;
 	}
 	.header__burger span {
 		position: absolute;
@@ -282,6 +279,7 @@ i.fa.fa-phone.fa-2x:before {
 	.header__burger.active span {
 		transform: scale(0);
 		transition: all 0.3s ease 0s;
+	
 	}
 	.header__burger.active:before {
 		transform: rotate(45deg);

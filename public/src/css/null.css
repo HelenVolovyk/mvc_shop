@@ -69,6 +69,12 @@ input[type="search"]::-webkit-search-decoration{
 	max-width: 1180px;
 	margin: 0px auto;
 }
+@media(max-width:787px){
+	.container{
+		max-width: 100%;
+		padding: 10px;
+	}
+}
 .content {
 	flex: 1 0 auto;
 	padding-top: 120px;

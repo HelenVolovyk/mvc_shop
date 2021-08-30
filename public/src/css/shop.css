@@ -30,12 +30,11 @@
 		position: absolute;
 		left: 0;
 		right: 0;
-		font-size: calc(12px + 8 * (100vw / 1280));
-		top:66%;
-		color: rgb(170, 170, 170);
+		font-size: calc(14px + 8 * (100vw / 1280));
+		top:60%;
+		color: rgb(143, 143, 143);
 		text-align: center;
-		font-weight: bold;
-		
+				
 	}
 	.med{
 		display: none;
@@ -47,7 +46,6 @@
 		font-size: 14px;
 		letter-spacing: 0.05rem;
 		top:78%;
-		/* bottom: 0; */
 	}
 }
 @media(max-width: 300px){
@@ -146,7 +144,6 @@ p.card-text{
 }
 
 
-
 #tab-1:checked ~ .tab-1{
 	border-bottom: 2px solid #007bff; 
 }
@@ -159,7 +156,6 @@ p.card-text{
 #tab-2:checked ~ .content-2{
 	display: block;
 }
-
 
 .ac-block__item{
 	margin-bottom: 20px;
@@ -252,7 +248,6 @@ input.cart_delete{
 	color:#0d6efd;
 	font-weight: bold;
 }
-
 
 #fon{
 	display: none;

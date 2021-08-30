@@ -60,7 +60,6 @@
 						<li class="nav-item">
 							<div class="nav-link cart">
 
-
 								<div class="">
 									<a class="nav-link" href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
 									</a>
@@ -122,12 +121,6 @@
 					<div class="header__enter">
 						<li class="nav-item">
 							<a class="header__link" href="/login"><i class="fa fa-user-o" aria-hidden="true"></i></a>
-						</li>
-
-						<li class="nav-item dropdown ml-2">
-							<a id="navbarDropdown" class="header__link nav-link dropdown-toggle font-weight-bold" href="#"
-								role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-							</a>
 						</li>
 					</div>
 				</ul>
